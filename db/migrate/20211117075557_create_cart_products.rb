@@ -3,7 +3,7 @@ class CreateCartProducts < ActiveRecord::Migration[5.2]
     create_table :cart_products do |t|
       t.integer :customer_id
       t.integer :product_id
-      t.integer :quantity
+      t.integer :quantity, null: false
 
       t.timestamps
     end
