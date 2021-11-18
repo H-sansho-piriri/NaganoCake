@@ -4,9 +4,9 @@ class CreateShippings < ActiveRecord::Migration[5.2]
 
       t.timestamps
       t.integer :customer_id
-      t.string :name
-      t.string :postal_code
-      t.string :address
+      t.string :name, null: false
+      t.string :postal_code, null: false
+      t.string :address, null: false
 
     end
   end
