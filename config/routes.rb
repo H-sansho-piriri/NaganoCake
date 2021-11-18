@@ -1,51 +1,52 @@
 Rails.application.routes.draw do
   namespace :admin do
-    get 'orders/index'
-    get 'orders/show'
+
+  resources :products, except: [:destroy]
+  resources :categories, except: [:show, :destroy, :new]
+  resources :customers, except: [:new, :create, :destroy]
+  resources :orders, only: [:index, :show, :update]
+  resources :order_details, only: [:update]
+
   end
-  namespace :admin do
-    get 'customers/index'
-    get 'customers/show'
-    get 'customers/edit'
+
+  # 管理者側
+  devise_for :admin, skip: [:registrations, :passwords], controllers: {
+    sessions: "admin/sessions"
+  }
+  # 顧客側
+  devise_for :customers, skip: [:passwords,], controllers: {
+    registrations: "public/registrations",
+    sessions: "public/sessions"
+  }
+
+  scope module: :public do
+
+    root to: "homes#top"
+    get "/about" => "homes#about", as: "about"
+
+    resources :products, only: [:index, :show]
+
+    resource :customers, only: [:show, :edit, :update] do
+      collection do
+        get 'unsubscribe'
+        patch "withdraw"
+      end
+
+      resources :cart_products, only: [:index, :create, :update, :destroy] do
+        collection do
+          delete "destroy_all"
+        end
+      end
+
+      resources :shippings, except: [:new, :show]
+
+    end
+
+    resources :orders, only: [:new, :create, :index, :show] do
+      collection do
+        post "confirm"
+        get "complete"
+      end
+    end
   end
-  namespace :admin do
-    get 'categories/index'
-    get 'categories/edit'
-  end
-  namespace :admin do
-    get 'products/index'
-    get 'products/new'
-    get 'products/show'
-    get 'products/edit'
-  end
-  namespace :public do
-    get 'shippings/index'
-    get 'shippings/edit'
-  end
-  namespace :public do
-    get 'orders/new'
-    get 'orders/confirm'
-    get 'orders/complete'
-    get 'orders/index'
-    get 'orders/show'
-  end
-  namespace :public do
-    get 'cart_products/index'
-  end
-  namespace :public do
-    get 'customers/show'
-    get 'customers/edit'
-    get 'customers/unsubscribe'
-  end
-  namespace :public do
-    get 'products/index'
-    get 'products/show'
-  end
-  namespace :public do
-    get 'homes/top'
-    get 'homes/about'
-  end
-  devise_for :admins
-  devise_for :customers
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
