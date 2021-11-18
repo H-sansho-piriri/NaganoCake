@@ -1,13 +1,4 @@
 Rails.application.routes.draw do
-  namespace :admin do
-
-  resources :products, except: [:destroy]
-  resources :categories, except: [:show, :destroy, :new]
-  resources :customers, except: [:new, :create, :destroy]
-  resources :orders, only: [:index, :show, :update]
-  resources :order_details, only: [:update]
-
-  end
 
   # 管理者側
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
@@ -19,6 +10,16 @@ Rails.application.routes.draw do
     sessions: "public/sessions"
   }
 
+#管理者側  
+  namespace :admin do
+    resources :products, except: [:destroy]
+    resources :categories, except: [:show, :destroy, :new]
+    resources :customers, except: [:new, :create, :destroy]
+    resources :orders, only: [:index, :show, :update]
+    resources :order_details, only: [:update]
+  end
+  
+# 顧客側
   scope module: :public do
 
     root to: "homes#top"
