@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     sessions: "public/sessions"
   }
 
-　#管理者側  
+  # 管理者側
   namespace :admin do
     resources :products, except: [:destroy]
     resources :categories, except: [:show, :destroy, :new]
