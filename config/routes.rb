@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     resources :order_details, only: [:update]
   end
   
-  # 顧客側
+  #顧客側
   scope module: :public do
 
     root to: "homes#top"
