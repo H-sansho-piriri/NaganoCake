@@ -16,3 +16,21 @@
  @import "bootstrap";
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
+
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+ }
+
+ header {
+  border-bottom: 1px solid black;
+ }
+
+.navbar-link {
+ margin-left: 30px;
+}
+
+footer {
+ border-top :1px solid black;
+}
