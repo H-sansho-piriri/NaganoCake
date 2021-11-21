@@ -10,12 +10,15 @@
       <div class="col-md-2">
         ジャンル名
       </div>
-      <div class="col-md-2">
-        <input type="" class="form-control" id="" placeholder="">
+
+      <div class="form-group col-md-2">
+        <%= form_with model:@category,url:"/admin/categories/#{@category.id}", local:true do |f| %>
+        <%= f.text_field :name, :class => 'form-control' %>
       </div>
-      <div class="col-md-4">
-        <button type="button" class="btn btn-success">変更を保存</button>
+      <div class="form-group col-md-8">
+        <%= f.submit "変更を保存" , class: 'btn btn-success' %>
       </div>
+        <% end %>
     </div>
 
   </div>
