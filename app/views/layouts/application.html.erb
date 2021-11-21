@@ -10,6 +10,63 @@
   </head>
 
   <body>
-    <%= yield %>
+
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col align-self-center">
+              <a class="navbar-brand" href="/"><span class="font-weight-bold">Nagano Cake</span></a>
+            </div>
+          </div>
+          <div class="col align-self-center">
+            <% if customer_signed_in? %>
+              <p>ようこそ<%= current_customer.last_name %>さん！</p>
+            <% end %>
+          </div>
+          <div class="col">
+            <ul class="navbar-nav justify-content-end">
+              <% if customer_signed_in? %>
+                <li class="navbar-link"><%= link_to "マイページ", customers_path(current_customer), class: "btn btn-outline-dark" %></li>
+                <li class="navbar-link"><%= link_to "商品一覧", products_path, class: "btn btn-outline-dark" %></li>
+                <li class="navbar-link"><%= link_to "カート", customers_cart_products_path(current_customer), class: "btn btn-outline-dark" %></li>
+                <li class="navbar-link"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn btn-outline-dark" %></li>
+              <% elsif admin_signed_in? %>
+                <li class="navbar-link"><%= link_to "商品一覧", products_path, class: "btn btn-outline-dark" %></li>
+                <li class="navbar-link"><%= link_to "会員一覧", about_path, class: "btn btn-outline-dark" %></li>
+                <li class="navbar-link"><%= link_to "注文履歴一覧", admin_orders_path, class: "btn btn-outline-dark" %></li>
+                <li class="navbar-link"><%= link_to "ジャンル一覧", admin_categories_path, class: "btn btn-outline-dark" %></li>
+                <li class="navbar-link"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-dark" %></li>
+              <% else %>
+                <li class="navbar-link"><%= link_to "About", about_path, class: "btn btn-outline-dark" %></li>
+                <li class="navbar-link"><%= link_to "商品一覧", products_path, class: "btn btn-outline-dark" %></li>
+                <li class="navbar-link"><%= link_to "新規登録", new_customer_registration_path, class: "btn btn-outline-dark" %></li>
+                <li class="navbar-link"><%= link_to "ログイン", new_customer_session_path, class: "btn btn-outline-dark" %></li>
+              <% end %>
+            </ul>
+            <div class="row my-1">
+              <div class="col">
+                <div class="input-group justify-content-end">
+                  <input type="text" class="form-control col-5" placeholder="Search" aria-describedby="inputGroupPrepend2" required>
+                  <span class="input-group-prepend" id="inputGroupPrepend2">
+                    <button class="input-group-text" id="inputGroupPrepend2"><i class="fas fa-search"></i></button>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+
+    </header>
+
+    <main>
+
+      <%= yield %>
+
+    </main>
+
+    <footer></footer>
   </body>
 </html>
