@@ -30,7 +30,7 @@
         <div class="d-flex flex-column mr-3">
           <div>
             <%= link_to "product_path(product)" do %>
-              <%= product.image %>
+              <%= attachment_image_tag :product_image, fill, 150, 200, fallback:"no-image.jpg" %>
             <% end %>
           </div>
           <div><%= product.name %></div>
