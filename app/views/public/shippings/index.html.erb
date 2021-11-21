@@ -1,2 +1,56 @@
-<h1>Public::Shippings#index</h1>
-<p>Find me in app/views/public/shippings/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <h3 class="col-md-5">配送先登録/一覧</h2>
+  </div>
+
+  <form>
+    <div class="form-group row">
+      <label for="" class="col-md-4 col-form-label">郵便番号（ハイフンなし）</label>
+
+      <div class="col-md-4">
+        <input type="" class="form-control" id="" placeholder="">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="" class="col-md-4 col-form-label">住所</label>
+
+      <div class="col-md-8">
+        <input type="" class="form-control" id="" placeholder="">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="" class="col-md-4 col-form-label">宛名</label>
+
+      <div class="col-md-4">
+        <input type="" class="form-control" id="" placeholder="">
+      </div>
+      <div class="col"><button type="button" class="btn btn-success">
+        新規登録</button>
+      </div>
+    </div>
+  </form>
+
+  <div class="row">
+    <div class="col-md-8">
+
+      <table class="shippings">
+        <tr>
+          <th>郵便番号</th>
+          <th>住所</th>
+          <th>宛名</th>
+          <th></th>
+        </tr>
+        <tr>
+          <td>000000</td>
+          <td>愛知県一宮市●●●</td>
+          <td>●● ●●</td>
+          <td>
+            <button type="button" class="btn btn-success">編集する</button>
+            <button type="button" class="btn btn-danger">削除する</button></button>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
