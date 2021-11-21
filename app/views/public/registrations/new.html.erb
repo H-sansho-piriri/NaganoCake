@@ -1,13 +1,32 @@
 <h2>新規会員登録</h2>
 
-<%= form_with model: @customer, url: customer_registration_path, local:ture do |f| %>
+<%= form_with model: @customer, url: customer_registration_path, local:true do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
   <div class="">
-    <%= f.label : "名前", class: "" %>
-    <%= f.label : "(姓)", class: "" %>
+    <%= f.label:"名前", class: "" %>
+    <%= f.label:"(姓)", class: "" %>
     <%= f.text_field :last_name, autofocus: true, placeholder: "令和", class: "" %>
-    <%= f.label : "(名)", class: "" %>
-    <%= f.text_field :first_name, autofocu: true, placeholder: "道子", class: "" %>
+    <%= f.label:"(名)", class: "" %>
+    <%= f.text_field :first_name, placeholder: "道子", class: "" %>
+  </div>
+  <div class="">
+    <%= f.label:"フリガナ", class: "" %>
+    <%= f.label:"(セイ)", class: "" %>
+    <%= f.text_field :last_name_kana, placeholder: "レイワ", class: "" %>
+    <%= f.label:"(メイ)", class: "" %>
+    <%= f.text_field :first_name_kana, placeholder: "ミチコ", class: "" %>
+  </div>
+  <div class="">
+    <%= f.label:"メールアドレス", class: "" %>
+    <%= f.email_field :email, placeholder: "sample@example.com", class: "" %>
+  </div>
+  <div class="">
+    <%= f.label:"郵便番号(ハイフン無し)", class: "" %>
+    <%= f.number_field :postal_code, placeholder: "0000000", class: "" %>
+  </div>
+  <div class="">
+    <%= f.label:"住所", class: "" %>
+    <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", class: " %>
   </div>
   <%= render "public/shared/links" %>
 <% end %>
