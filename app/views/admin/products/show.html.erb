@@ -14,9 +14,8 @@
       <label>ジャンル</label>
       <%= @product.category_id.name %>
       
-      <!--税込み価格の表示法-->
       <label>税込み価格<br>（税抜価格）</label>
-      <%= @product.price %> (<%= @product.price %>)
+      <%= @product.add_tax_price.to_s(:delimited) %> (<%= @product.price %>)
       
       <!--booleanの表示方法-->
       <label>販売ステータス</label>
