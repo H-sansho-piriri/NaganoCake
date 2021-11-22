@@ -1,2 +1,30 @@
-<h1>Admin::Categories#edit</h1>
-<p>Find me in app/views/admin/categories/edit.html.erb</p>
+<main>
+  <div class="container">
+    <div class="row">
+      <h3 class="col-md-5">ジャンル編集</h2>
+    </div>
+
+    <br>
+
+    <div class="row">
+      <div class="col-2">
+        ジャンル名
+      </div>
+
+    <!--ジャンル名編集-->
+      <%= form_with model:@category,url:"/admin/categories/#{@category.id}", local:true do |f| %>
+      <div class="d-flex flex-row　form-group">
+        <div>
+          <%= f.text_field :name, :class => 'form-control' %>
+        </div>
+
+        <div>
+          <%= f.submit "変更を保存" , class: 'btn btn-success offset-md-2' %>
+        </div>
+      </div>
+      <% end %>
+
+    </div>
+
+  </div>
+</main>
