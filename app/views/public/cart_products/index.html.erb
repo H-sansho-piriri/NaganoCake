@@ -4,7 +4,9 @@
       <h3>ショッピングカート</h2>
     </div>
     <div class="col-md-4 offset-md-4">
-      <button type="button" class="btn btn-danger">カートを空にする</button>
+      <%= link_to destroy_all_customers_cart_products_path, method: :delete do %>
+        <button type="button" class="btn btn-danger">カートを空にする</button>
+      <% end %>
     </div>
   </div>
 
@@ -19,12 +21,14 @@
           <th>小計</th>
           <th></th>
         </tr>
+          <% @cart_products.each do |cart_product| %>
         <tr>
           <td>
             <!--img追加-->
-            チョコバナナミルフィーユ
+            <%= cart_products.product_id.name %>
           </td>
-          <td>1,100</td>
+          <td>
+            <%= cart_products.product_id.price %></td>
           <td>
             <select name="example">
               <option value="0">0</option>
@@ -41,6 +45,7 @@
             <button type="button" class="btn btn-danger">削除する</button>
           </td>
         </tr>
+        <% end %>
 
 
         <tr>
