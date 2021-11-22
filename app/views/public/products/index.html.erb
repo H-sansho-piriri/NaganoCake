@@ -7,11 +7,8 @@
       <div class="border border-dark p-3">
         <ul class="list-unstyled">
           <% @categories.each do |category| %>
-          <li><%= link_to "category.name", "name" %></li>
+          <li><%= category.name %></li>
           <% end %>
-          <li>ケーキ</li>
-          <li>焼き菓子</li>
-          <li></li>
         </ul>
       </div>
     </div>
@@ -21,8 +18,8 @@
         <% @products.each do |product| %>
         <div class="d-flex flex-column mr-3">
           <div>
-            <%= link_to "product_path(product)" do %>
-              <%= attachment_image_tag product, :product_image, :fill, 150, 200, fallback:"no_image.jpg" %>
+            <%= link_to product_path(product.id) do %>
+              <%= attachment_image_tag product, :image, :fill, 150, 200, fallback:"no_image.jpg" %>
             <% end %>
           </div>
           <div><%= product.name %></div>
