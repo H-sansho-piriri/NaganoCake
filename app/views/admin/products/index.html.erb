@@ -19,15 +19,14 @@
             <td><%= product.id %></td>
             <td><%= link_to product.name, admin_product_path(product.id) %></td>
             <td><%= product.price %></td>
-            <td><%= product.category_id.name %></td>
-            <td><%= product.is_active %></td>
+            <td><%= product.category.name %></td>
+            <td><%= product.is_active ? "販売中" : "販売停止中" %></td>
           </tr>
           <% end %>
         </tbody>
       </table>
 
-      <!--ページネーション設定-->
-      <!--他のページング設定ページとの調整-->
+      <!--ページング記載-->
 
     </div>
   </div>

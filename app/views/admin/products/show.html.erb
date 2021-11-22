@@ -19,11 +19,7 @@
 
       <!--booleanの表示方法-->
       <label>販売ステータス</label>
-        <% if @product.is_active == false %>
-          販売中
-        <% else %>
-          販売停止中
-        <% end %>
+      <%= @product.is_active ? "販売中" : "販売停止中" %>
 
 
       <%= link_to edit_admin_product_path(@product.id) do %>
