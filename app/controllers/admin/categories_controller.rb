@@ -5,9 +5,6 @@ class Admin::CategoriesController < ApplicationController
 
   end
 
-
-
-
   def create
     @category = Category.new(category_params)
     @category.save
