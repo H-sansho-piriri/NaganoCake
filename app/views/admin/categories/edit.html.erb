@@ -7,18 +7,22 @@
     <br>
 
     <div class="row">
-      <div class="col-md-2">
+      <div class="col-2">
         ジャンル名
       </div>
 
-      <div class="form-group col-md-2">
-        <%= form_with model:@category,url:"/admin/categories/#{@category.id}", local:true do |f| %>
-        <%= f.text_field :name, :class => 'form-control' %>
+      <%= form_with model:@category,url:"/admin/categories/#{@category.id}", local:true do |f| %>
+      <div class="d-flex flex-row　form-group">
+        <div>
+          <%= f.text_field :name, :class => 'form-control' %>
+        </div>
+
+        <div>
+          <%= f.submit "変更を保存" , class: 'btn btn-success offset-md-2' %>
+        </div>
       </div>
-      <div class="form-group col-md-8">
-        <%= f.submit "変更を保存" , class: 'btn btn-success' %>
-      </div>
-        <% end %>
+      <% end %>
+
     </div>
 
   </div>
