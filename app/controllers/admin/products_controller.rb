@@ -12,6 +12,7 @@ class Admin::ProductsController < ApplicationController
     product = Product.new(product_params)
     product.save
     redirect_to admin_product_path(product.id)
+    
   end
 
   def show
@@ -26,8 +27,9 @@ class Admin::ProductsController < ApplicationController
   end
 
   private
+  # category_id追加する
   def product_params
-    params.require(:product).permit(:name, :caption, :price, :image, :is_active)
+    params.require(:product).permit(:name, :caption, :price, :image, :category_id, :is_active)
   end
 
 end

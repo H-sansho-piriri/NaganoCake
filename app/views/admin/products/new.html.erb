@@ -2,9 +2,10 @@
 <div class="container">
   <div class="row">
     <!--colのサイズ設定-->
-    <%= form_with model: @product, local: true do |f| %>
+    <%= form_with model: @product, url: admin_products_path, local: true do |f| %>
+
       <label>商品画像</label>
-      <%= f.attachment_field :product_image %>
+      <%= f.attachment_field :image %>
 
       <label>商品名</label>
       <%= f.text_field :name %>
@@ -12,6 +13,7 @@
       <label>商品説明</label>
       <%= f.text_area :caption %>
 
+      <!--カテゴリー-->
       <label>ジャンル</label>
       <%= f.collection_select(:category_id, @categories, :id, :name, prompt: "選択してください") %>
 

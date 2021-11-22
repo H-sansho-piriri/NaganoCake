@@ -4,7 +4,7 @@
     <!--colのサイズ設定-->
     <%= form_with model: @product, local: true do |f| %>
       <label>商品画像</label>
-      <%= f.attachment_field :product_image %>
+      <%= f.attachment_field :image %>
 
       <label>商品名</label>
       <%= f.text_field :name %>
