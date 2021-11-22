@@ -1,2 +1,34 @@
-<h1>Admin::Products#index</h1>
-<p>Find me in app/views/admin/products/index.html.erb</p>
+<h6>商品一覧</h6>
+<div class="container">
+  <div class="row">
+    <!--colのサイズ設定-->
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th>商品ID</th>
+            <th>商品名</th>
+            <th>税抜価格</th>
+            <th>ジャンル</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @products.each do |product| %>
+          <tr>
+            <td><%= product.id %></td>
+            <td><%= link_to product.name, admin_product_path(product.id) %></td>
+            <td><%= product.price %></td>
+            <td><%= product.category_id.name %></td>
+            <td><%= product.is_active %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <!--ページネーション設定-->
+      <!--他のページング設定ページとの調整-->
+
+    </div>
+  </div>
+</div>
