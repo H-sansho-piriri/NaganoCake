@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <!--colのサイズ設定-->
-    <%= form_with model: @product, local: true do |f| %>
+    <%= form_with model: @product, url: admin_product_path(@product.id), local: true do |f| %>
       <label>商品画像</label>
       <%= f.attachment_field :image %>
 
