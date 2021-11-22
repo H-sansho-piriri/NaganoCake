@@ -1,2 +1,32 @@
-<h1>Admin::Products#show</h1>
-<p>Find me in app/views/admin/products/show.html.erb</p>
+<h6>商品詳細</h6>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <%= attachment_image_tag @product, :image, :fill, 100, 200, format: "jpeg" %>
+    </div>
+    <div class="col">
+      <label>商品名</label>
+      <%= @product.name %>
+
+      <label>商品説明</label>
+      <%= @product.caption %>
+
+      <label>ジャンル</label>
+      <%= @product.category.name %>
+
+      <label>税込み価格<br>（税抜価格）</label>
+      <%= @product.add_tax_price.to_s(:delimited) %> (<%= @product.price %>)
+
+      <!--booleanの表示方法-->
+      <label>販売ステータス</label>
+      <%= @product.is_active ? "販売中" : "販売停止中" %>
+
+
+      <%= link_to edit_admin_product_path(@product.id) do %>
+        <div class="button">
+          編集する
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
