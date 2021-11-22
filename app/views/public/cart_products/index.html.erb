@@ -1,2 +1,101 @@
-<h1>Public::CartProducts#index</h1>
-<p>Find me in app/views/public/cart_products/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <h3>ショッピングカート</h2>
+    </div>
+    <div class="col-md-4 offset-md-4">
+      <%= link_to destroy_all_customers_cart_products_path, method: :delete do %>
+        <button type="button" class="btn btn-danger">カートを空にする</button>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+
+      <table class="cart_products col-md-10">
+        <tr>
+          <th>商品名</th>
+          <th>単価(税込)</th>
+          <th>数量</th>
+          <th>小計</th>
+          <th></th>
+        </tr>
+          <% @cart_products.each do |cart_product| %>
+        <tr>
+          <td>
+            <!--img追加-->
+            <%= cart_products.product_id.name %>
+          </td>
+          <td>
+            <%= cart_products.product_id.price %></td>
+          <td>
+            <%= f.select :quantity, [["0", "0"], ["1", "1"], ["2", "2"], ["3", "3"]] %>
+
+            <select name="example">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+            </select>
+
+            <button type="button" class="btn btn-success">変更</button>
+          </td>
+          <td>
+            1,100
+          </td>
+          <td>
+            <button type="button" class="btn btn-danger">削除する</button>
+          </td>
+        </tr>
+        <% end %>
+
+
+        <tr>
+          <td>
+            <!--img追加-->
+            チョコバナナミルフィーユ
+          </td>
+          <td>1,100</td>
+          <td>
+            <select name="example">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+            </select>
+
+            <button type="button" class="btn btn-success">変更</button>
+          </td>
+          <td>
+            1,100
+          </td>
+          <td>
+            <button type="button" class="btn btn-danger">削除する</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+<br><br>
+
+  <div class="row">
+    <div class="col-md-7 offset-md-1">
+      <button type="button" class="btn btn-primary">買い物を続ける</button>
+    </div>
+    <div class="col-auto">
+
+      <table class="cart_products">
+        <tr>
+          <th>合計金額</th>
+          <td>1,100</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 offset-md-4">
+      <button type="button" class="btn btn-success">情報入力に進む</button>
+    </div>
+
+  </div>
+</div>

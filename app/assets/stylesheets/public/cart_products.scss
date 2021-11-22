@@ -1,3 +1,18 @@
 // Place all the styles related to the public/cart_products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.cart_products{
+    border:1px solid #000;
+}
+
+.cart_products th{
+    border:1px solid #000;
+    padding:10px;
+    background-color:#eee;
+}
+
+.cart_products td{
+    border:1px solid #000;
+    padding:10px;
+}
