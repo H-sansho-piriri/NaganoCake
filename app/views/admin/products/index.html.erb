@@ -1,26 +1,26 @@
-<h6>商品一覧</h6>
 <div class="container">
+  <h6>商品一覧</h6>
   <div class="row">
     <!--colのサイズ設定-->
-    <div>
-      <table>
+    <div class="col-md-10">
+      <table border-top>
         <thead>
           <tr>
-            <th>商品ID</th>
-            <th>商品名</th>
-            <th>税抜価格</th>
-            <th>ジャンル</th>
-            <th>ステータス</th>
+            <th class="col-md-1">商品ID</th>
+            <th class="col-md-3">商品名</th>
+            <th class="col-md-2">税抜価格</th>
+            <th class="col-md-2">ジャンル</th>
+            <th class="col-md-2">ステータス</th>
           </tr>
         </thead>
         <tbody>
           <% @products.each do |product| %>
           <tr>
-            <td><%= product.id %></td>
-            <td><%= link_to product.name, admin_product_path(product.id) %></td>
-            <td><%= product.price %></td>
-            <td><%= product.category.name %></td>
-            <td><%= product.is_active ? "販売中" : "販売停止中" %></td>
+            <td class="col-md-1"><%= product.id %></td>
+            <td class="col-md-3"><%= link_to product.name, admin_product_path(product.id) %></td>
+            <td class="col-md-2"><%= product.price %></td>
+            <td class="col-md-2"><%= product.category.name %></td>
+            <td class="col-md-2"><%= product.is_active ? "販売中" : "販売停止中" %></td>
           </tr>
           <% end %>
         </tbody>

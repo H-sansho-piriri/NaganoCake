@@ -1,31 +1,39 @@
-<h6>商品新規登録</h6>
 <div class="container">
+  <h6>商品新規登録</h6>
   <div class="row">
     <!--colのサイズ設定-->
     <%= form_with model: @product, url: admin_products_path, local: true do |f| %>
-
-      <label>商品画像</label>
-      <%= f.attachment_field :image %>
-
-      <label>商品名</label>
-      <%= f.text_field :name %>
-
-      <label>商品説明</label>
-      <%= f.text_area :caption %>
-
-      <!--カテゴリー-->
-      <label>ジャンル</label>
-      <%= f.collection_select(:category_id, @categories, :id, :name, prompt: "選択してください") %>
-
-      <label>税抜き価格</label>
-      <%= f.text_field :price %>円
-
-      <label>販売ステータス</label>
-      <%= f.radio_button :is_active, :true %>
-      <%= f.label :is_active, "販売中" %>
-      <%= f.radio_button :is_active, :false %>
-      <%= f.label :is_active, "販売停止中" %>
-
+      <table>
+        <tr>
+          <th>商品画像</th>
+          <th><%= f.attachment_field :image %></th>
+        </tr>
+        <tr>
+          <th>商品名</th>
+          <th><%= f.text_field :name %></th>
+        </tr>
+        <tr>
+          <th>商品説明</th>
+          <th><%= f.text_area :caption %></th>
+        </tr>
+        <tr>
+          <th>ジャンル</th>
+          <th><%= f.collection_select(:category_id, @categories, :id, :name, prompt: "選択してください") %></th>
+        </tr>
+        <tr>
+          <th>税抜き価格</th>
+          <th><%= f.text_field :price %>円</th>
+        </tr>
+        <tr>
+          <th>販売ステータス</th>
+          <th>
+            <%= f.radio_button :is_active, :true %>
+            <%= f.label :is_active, "販売中" %>
+            <%= f.radio_button :is_active, :false %>
+            <%= f.label :is_active, "販売停止中" %>
+          </th>
+        </tr>
+      </table>
       <%= f.submit "新規登録" %>
     <% end %>
   </div>
