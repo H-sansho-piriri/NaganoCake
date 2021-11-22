@@ -7,11 +7,9 @@
       <div class="border border-dark p-3">
         <ul class="list-unstyled">
           <% @categories.each do |category| %>
-          <li><%= link_to "category.name", "name" %></li>
+          <li><%= category.name %></li>
           <% end %>
-          <li>ケーキ</li>
-          <li>焼き菓子</li>
-          <li></li>
+
         </ul>
       </div>
     </div>
