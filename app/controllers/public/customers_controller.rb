@@ -6,7 +6,7 @@ class Public::CustomersController < ApplicationController
   def edit
     @customer = Customer.find(current_customer)
   end
-  
+
   def update
     @cutomer = Customer.find(current_user)
     if @customer.update(customer_params)
@@ -19,6 +19,6 @@ class Public::CustomersController < ApplicationController
   def unsubscribe
   end
 
-　def withdrawal
+　def withdraw
 　end
 end
