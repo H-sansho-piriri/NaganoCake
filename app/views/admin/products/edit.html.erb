@@ -5,33 +5,33 @@
     <%= form_with model: @product, url: admin_product_path(@product.id), local: true do |f| %>
       <table>
         <tr>
-          <th>商品画像</th>
-          <th><%= f.attachment_field :image %></th>
+          <td>商品画像</td>
+          <td><%= f.attachment_field :image %></td>
         </tr>
         <tr>
-          <th>商品名</th>
-          <th><%= f.text_field :name %></th>
+          <td>商品名</td>
+          <td><%= f.text_field :name %></td>
         </tr>
         <tr>
-          <th>商品説明</th>
-          <th><%= f.text_area :caption %></th>
+          <td>商品説明</td>
+          <td><%= f.text_area :caption %></td>
         </tr>
         <tr>
-          <th>ジャンル</th>
-          <th><%= f.collection_select(:category_id, @categories, :id, :name, prompt: "選択してください") %></th>
+          <td>ジャンル</td>
+          <td><%= f.collection_select(:category_id, @categories, :id, :name, prompt: "選択してください") %></td>
         </tr>
         <tr>
-          <th>税抜き価格</th>
-          <th><%= f.text_field :price %>円</th>
+          <td>税抜き価格</td>
+          <td><%= f.text_field :price %>円</td>
         </tr>
         <tr>
-          <th>販売ステータス</th>
-          <th>
+          <td>販売ステータス</td>
+          <td>
             <%= f.radio_button :is_active, :true %>
             <%= f.label :is_active, "販売中" %>
             <%= f.radio_button :is_active, :false %>
             <%= f.label :is_active, "販売停止中" %>
-          </th>
+          </td>
         </tr>
       </table>
       <%= f.submit "変更を保存" %>
