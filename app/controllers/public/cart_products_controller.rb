@@ -15,4 +15,12 @@ class Public::CartProductsController < ApplicationController
 
   def destroy_all
   end
+
+private
+def cart_product_params
+    params.require(:cart_product).permit(:product_id, :quantity)
 end
+
+
+end
+

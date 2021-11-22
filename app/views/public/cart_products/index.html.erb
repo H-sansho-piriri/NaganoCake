@@ -30,6 +30,8 @@
           <td>
             <%= cart_products.product_id.price %></td>
           <td>
+            <%= f.select :quantity, [["0", "0"], ["1", "1"], ["2", "2"], ["3", "3"]] %>
+
             <select name="example">
               <option value="0">0</option>
               <option value="1">1</option>
