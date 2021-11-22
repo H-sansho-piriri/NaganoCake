@@ -1,2 +1,69 @@
-<h1>Public::Orders#show</h1>
-<p>Find me in app/views/public/orders/show.html.erb</p>
+<h6>注文履歴詳細</h6>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <p>注文情報</p>
+      <table>
+        <tr>
+          <td>注文日</td>
+          <!--データから入力-->
+          <td>住所</td>
+        </tr>
+        <tr>
+          <td>配送先</td>
+          <td>配送先住所</td>
+        </tr>
+        <tr>
+          <td支払方法></td>
+          <td>支払方法</td>
+        </tr>
+        <tr>
+          <td>ステータス</td>
+          <td>ステータス</td>
+        </tr>
+      </table>
+    </div>
+    <div class="col">
+      <p>請求情報</p>
+      <table>
+        <!--各項目2段目はデータから入力-->
+        <tr>
+          <td>商品合計</td>
+          <td>商品合計</td>
+        </tr>
+        <tr>
+          <td>配送料</td>
+          <td>配送料</td>
+        </tr>
+        <tr>
+          <td>ご請求額</td>
+          <td>ご請求額</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <p>注文内容</p>
+      <table>
+        <thead>
+          <tr>
+            <th>商品</th>
+            <th>単価（税込）</th>
+            <th>個数</th>
+            <th>小計</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!--以下データ入力-->
+          <tr>
+            <td>shouhin</td>
+            <td>tannka</td>
+            <td>kosuu</td>
+            <td>shoukei</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
