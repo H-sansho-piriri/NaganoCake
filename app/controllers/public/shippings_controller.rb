@@ -6,6 +6,7 @@ class Public::ShippingsController < ApplicationController
 
   def create
     shipping = Shipping.new(shipping_params)
+    shipping.customer_id = current_customer.id
     shipping.save
     redirect_to customers_shippings_path
   end
@@ -16,6 +17,7 @@ class Public::ShippingsController < ApplicationController
 
   def update
     @shipping = Shipping.find(params[:id])
+    @shipping.customer_id = current_customer.id
     if @shipping.update(shipping_params)
       redirect_to customers_shippings_path
     else
