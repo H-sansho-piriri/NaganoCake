@@ -1,6 +1,6 @@
 <h4>管理者ログイン</h4>
 
-<%= form_with model:@admin, url:customer_session_path, local:true do |f| %>
+<%= form_with model:@admin, url:admin_session_path, local:true do |f| %>
   <%= render "admin/shared/error_messages", resource: resource %>
   <div class="">
     <%= f.label:メールアドレス, class: "" %>
