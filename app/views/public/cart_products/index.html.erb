@@ -21,16 +21,18 @@
           <th>小計</th>
           <th></th>
         </tr>
-          <% @cart_products.each do |cart_product| %>
+
         <tr>
+          <% @cart_products.each do |cart_product| %>
           <td>
             <!--img追加-->
-            <%= cart_products.product_id.name %>
+
+            <%= cart_product.product_id %>
           </td>
+          <% end %>
           <td>
-            <%= cart_products.product_id.price %></td>
+            価格表示予定</td>
           <td>
-            <%= f.select :quantity, [["0", "0"], ["1", "1"], ["2", "2"], ["3", "3"]] %>
 
             <select name="example">
               <option value="0">0</option>
@@ -47,7 +49,7 @@
             <button type="button" class="btn btn-danger">削除する</button>
           </td>
         </tr>
-        <% end %>
+
 
 
         <tr>
