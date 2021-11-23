@@ -11,27 +11,8 @@ class Public::CartProductsController < ApplicationController
     # binding.pry
     @cart_product = CartProduct.new(cart_product_params)
     @cart_product.customer_id = current_customer.id
-    # if
     @cart_product.save
     redirect_to customers_cart_products_path
-    # else
-    # render:index
-    # end
-    # @cart_product.customer = current_customer
-    # @cart_product.product.id = params[:product_id]
-    # @task = Task.new(task_params)
-    # @cart_products = CartProduct.all
-    # @cart_product = CartProduct.find(cart_product_params[:product_id])
-    # @cart_product.save
-
-
-
-    # あとで定義
-    # if Product.find_by(name: "aaaa")
-    #   puts "ある"
-    # else
-    #   redirect_to root_path
-    # end
 
   end
 
@@ -58,11 +39,10 @@ class Public::CartProductsController < ApplicationController
 
 
 #product_idとquantityを取り出し格納するため
-private
-def cart_product_params
-    params.require(:cart_product).permit(:product_id, :quantity)
+  private
+
+  def cart_product_params
+      params.require(:cart_product).permit(:product_id, :quantity)
+  end
+
 end
-
-
-end
-
