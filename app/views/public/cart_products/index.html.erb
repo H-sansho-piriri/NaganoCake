@@ -31,7 +31,7 @@
           </td>
 
           <td>
-            <%= cart_product.product.add_tax_price %>
+            <%= cart_product.product.add_tax_price.to_s(:delimited) %>
           </td>
           <td>
             <%= form_with model: cart_product, url:"/customers/cart_products/#{cart_product.id}", local: true do |f| %>
@@ -46,7 +46,7 @@
 
           </td>
           <td>
-            <%= cart_product.subtotal %>
+            <%= cart_product.subtotal.to_s(:delimited) %>
           </td>
           <td>
             <%= link_to customers_cart_product_path(cart_product.id), method: :delete do %>
@@ -72,15 +72,21 @@
       <table class="cart_products">
         <tr>
           <th>合計金額</th>
-          <td><%= @total %></td>
+          <td><%= @total.to_s(:delimited) %></td>
         </tr>
       </table>
     </div>
   </div>
 
+
+<!--データ渡す-->
   <div class="row">
     <div class="col-md-6 offset-md-4">
-      <%= form_with model: @order, url:orders_path, local: true do |f| %>
+      <%= form_with model: Order.new, url:orders_path, local: true do |f| %>
+        <% @cart_products.each do |cart_product| %>
+          <%= f.hidden_field :product_id, value: cart_product.product_id %>
+          <%= f.hidden_field :quantity, value: cart_product.quantity %>
+        <% end %>
       <button type="button" class="btn btn-success">情報入力に進む</button>
       <% end %>
     </div>
