@@ -21,57 +21,41 @@
           <th>小計</th>
           <th></th>
         </tr>
+
           <% @cart_products.each do |cart_product| %>
-        <tr>
+          <tr>
           <td>
             <!--img追加-->
-            <%= cart_products.product_id.name %>
-          </td>
-          <td>
-            <%= cart_products.product_id.price %></td>
-          <td>
-            <%= f.select :quantity, [["0", "0"], ["1", "1"], ["2", "2"], ["3", "3"]] %>
 
-            <select name="example">
-              <option value="0">0</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-            </select>
+            <%= cart_product.product.name %>
+          </td>
 
-            <button type="button" class="btn btn-success">変更</button>
+          <td>
+            <%= cart_product.product.add_tax_price %>
           </td>
           <td>
-            1,100
+            <%= form_with model: cart_product, url:"/customers/cart_products/#{cart_product.id}", local: true do |f| %>
+              <%= f.select :quantity, *[1..30] %>
+              <%= f.submit '変更' %>
+            <% end %>
+            <!--<select name="example">-->
+            <!--  <option value="0">0</option>-->
+            <!--  <option value="1">1</option>-->
+            <!--  <option value="2">2</option>-->
+            <!--</select>-->
+
           </td>
           <td>
+            <%= cart_product.subtotal %>
+          </td>
+          <td>
+            <%= link_to customers_cart_product_path(cart_product.id), method: :delete do %>
             <button type="button" class="btn btn-danger">削除する</button>
+            <% end %>
           </td>
+          <% @total +=  cart_product.subtotal %>
         </tr>
         <% end %>
-
-
-        <tr>
-          <td>
-            <!--img追加-->
-            チョコバナナミルフィーユ
-          </td>
-          <td>1,100</td>
-          <td>
-            <select name="example">
-              <option value="0">0</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-            </select>
-
-            <button type="button" class="btn btn-success">変更</button>
-          </td>
-          <td>
-            1,100
-          </td>
-          <td>
-            <button type="button" class="btn btn-danger">削除する</button>
-          </td>
-        </tr>
       </table>
     </div>
   </div>
@@ -86,7 +70,7 @@
       <table class="cart_products">
         <tr>
           <th>合計金額</th>
-          <td>1,100</td>
+          <td><%= @total %></td>
         </tr>
       </table>
     </div>
