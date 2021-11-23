@@ -1,6 +1,7 @@
 <h4><%= @customer.full_name %>さんの会員情報編集</h4>
 
 <%= form_with model:@customer, url: admin_customer_path, method: :PATCH, local:true do |f| %>
+<%= render 'layouts/error_messages', model: f.object %>
   <div class="">
     <div class="">会員ID</div>
     <div class=""><%= @customer.id %></div>
