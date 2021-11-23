@@ -34,8 +34,8 @@
             <%= cart_product.product.add_tax_price %>
           </td>
           <td>
-            <%= form_with model:@cart_product, local: true do |f| %>
-              <%= f.select :quantity, *[1..30], { include_blank: cart_product.quantity.to_s} %>
+            <%= form_with model: cart_product, url:"/customers/cart_products/#{cart_product.id}", local: true do |f| %>
+              <%= f.select :quantity, *[1..30] %>
               <%= f.submit '変更' %>
             <% end %>
             <!--<select name="example">-->
