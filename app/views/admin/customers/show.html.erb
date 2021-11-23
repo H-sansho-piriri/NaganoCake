@@ -28,14 +28,19 @@
         </tr>
         <tr>
           <td>電話番号</td>
-          <td><%= @customer.id %></td>
+          <td><%= @customer.phone_number %></td>
         </tr>
         <tr>
           <td>メールアドレス</td>
-          <td><%= @customer.phone_number %></td>
+          <td><%= @customer.email %></td>
         </tr><tr>
           <td>会員ステータス</td>
-          <td><%= @customer.is_deleted ? "有効" : "退会" %></td>
+          <% if @customer.is_deleted == false %>
+            <td>有効</td>
+          <% else %>
+            <td>退会</td>
+          <% end %>
+          </td>
         </tr>
 
       </table>

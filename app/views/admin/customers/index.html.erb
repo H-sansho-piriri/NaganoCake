@@ -19,7 +19,11 @@
         <% end %>
       </td>
       <td><%= customer.email %></td>
-      <td><%= customer.is_deleted ? "有効" : "退会済み" %></td>
+      <% if customer.is_deleted == false %>
+        <td>有効</td>
+      <% else %>
+        <td>退会</td>
+      <% end %>
     </tbody>
     <% end %>
   </table>

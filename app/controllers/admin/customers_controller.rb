@@ -1,4 +1,5 @@
 class Admin::CustomersController < ApplicationController
+  
   def index
     @customers = Customer.all
   end
@@ -13,10 +14,17 @@ class Admin::CustomersController < ApplicationController
 
   def update
     @customer = Customer.find(params[:id])
-    if @customer.update
-      redirect_to admin_customer_path(@customer)
+    if @customer.update(customer_params)
+      redirect_to admin_customer_path, notice: "変更が完了しました。"
     else
-      render :edit
+      render :edit, notice: "変更できませんでした"
     end
   end
+  
+  private
+  
+  def customer_params
+    params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code, :address, :phone_number, :email, :is_deleted)
+  end
+  
 end
