@@ -1,14 +1,15 @@
 class Public::CustomersController < ApplicationController
+  
   def show
-    @customer = Customer.find(current_customer)
+   @customer = current_customer
   end
 
   def edit
-    @customer = Customer.find(current_customer)
+    @customer = current_customer
   end
 
   def update
-    @cutomer = Customer.find(current_user)
+    @customer = current_customer
     if @customer.update(customer_params)
       redirect_to cutomers_path(current_customer)
     else
@@ -18,7 +19,12 @@ class Public::CustomersController < ApplicationController
 
   def unsubscribe
   end
+  
+  def withdraw
+    @customer = current_customer
+    @customer.is_deleted = true
+    @customer.save
+    redirect_to root_path
+  end
 
-　def withdraw
-　end
 end
