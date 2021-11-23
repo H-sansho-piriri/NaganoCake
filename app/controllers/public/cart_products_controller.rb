@@ -1,6 +1,8 @@
 class Public::CartProductsController < ApplicationController
   def index
     @cart_products = CartProduct.all
+    @total = 0
+    # @cart_products.all.sum(:quantity)
 
     # @products = CartProduct.all
   end
@@ -21,16 +23,39 @@ class Public::CartProductsController < ApplicationController
     # @cart_products = CartProduct.all
     # @cart_product = CartProduct.find(cart_product_params[:product_id])
     # @cart_product.save
+
+
+
+    # あとで定義
+    # if Product.find_by(name: "aaaa")
+    #   puts "ある"
+    # else
+    #   redirect_to root_path
+    # end
+
   end
 
+  # カート内の個数を変更
   def update
+    @cart_product = CartProduct.find(params[:id])
+     @cart_product.update(cart_product_params)
+    redirect_to customers_cart_products_path
   end
+
+
 
   def destroy
+    @cart_product = CartProduct.find(params[:id])
+    @cart_product.destroy
+    redirect_to customers_cart_products_path
   end
 
   def destroy_all
+    @cart_products = CartProduct.all
+    @cart_products.destroy_all
+    redirect_to customers_cart_products_path
   end
+
 
 #product_idとquantityを取り出し格納するため
 private

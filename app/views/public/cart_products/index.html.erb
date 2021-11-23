@@ -31,50 +31,31 @@
           </td>
 
           <td>
-            <%= cart_product.product.price %></td>
+            <%= cart_product.product.add_tax_price %>
+          </td>
           <td>
-            <%= cart_product.quantity %>
+            <%= form_with model:@cart_product, local: true do |f| %>
+              <%= f.select :quantity, *[1..30], { include_blank: cart_product.quantity.to_s} %>
+              <%= f.submit '変更' %>
+            <% end %>
             <!--<select name="example">-->
             <!--  <option value="0">0</option>-->
             <!--  <option value="1">1</option>-->
             <!--  <option value="2">2</option>-->
             <!--</select>-->
 
-            <button type="button" class="btn btn-success">変更</button>
           </td>
           <td>
-            1,100
+            <%= cart_product.subtotal %>
           </td>
           <td>
+            <%= link_to customers_cart_product_path(cart_product.id), method: :delete do %>
             <button type="button" class="btn btn-danger">削除する</button>
+            <% end %>
           </td>
+          <% @total +=  cart_product.subtotal %>
         </tr>
         <% end %>
-
-
-
-        <tr>
-          <td>
-            <!--img追加-->
-            チョコバナナミルフィーユ
-          </td>
-          <td>1,100</td>
-          <td>
-            <select name="example">
-              <option value="0">0</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-            </select>
-
-            <button type="button" class="btn btn-success">変更</button>
-          </td>
-          <td>
-            1,100
-          </td>
-          <td>
-            <button type="button" class="btn btn-danger">削除する</button>
-          </td>
-        </tr>
       </table>
     </div>
   </div>
@@ -89,7 +70,7 @@
       <table class="cart_products">
         <tr>
           <th>合計金額</th>
-          <td>1,100</td>
+          <td><%= @total %></td>
         </tr>
       </table>
     </div>
