@@ -63,7 +63,9 @@
 
   <div class="row">
     <div class="col-md-7 offset-md-1">
+      <%= link_to products_path do %>
       <button type="button" class="btn btn-primary">買い物を続ける</button>
+      <% end %>
     </div>
     <div class="col-auto">
 
@@ -78,7 +80,9 @@
 
   <div class="row">
     <div class="col-md-6 offset-md-4">
+      <%= form_with model: @order, url:orders_path, local: true do |f| %>
       <button type="button" class="btn btn-success">情報入力に進む</button>
+      <% end %>
     </div>
 
   </div>
