@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
     resource :customers, only: [:show, :edit, :update] do
       collection do
-        get 'unsubscribe'
+        get "unsubscribe"
         patch "withdraw"
       end
 
@@ -40,8 +40,7 @@ Rails.application.routes.draw do
       end
     end
   end
-
-
+  
   # 管理者側
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
@@ -51,5 +50,5 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: "public/sessions"
   }
-
+  
 end
