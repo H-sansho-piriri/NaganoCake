@@ -1,4 +1,4 @@
-<h4><%= @customer.last_name + @customer.first_name %>さんの会員情報編集</h4>
+<h4><%= @customer.full_name %>さんの会員情報編集</h4>
 
 <%= form_with model:@customer, url: admin_customer_path, method: :PATCH, local:true do |f| %>
   <div class="">
@@ -27,14 +27,12 @@
     <div class=""><%= f.email_field :email, class: "" %></div>
     
     <div class=""><%= f.label :会員ステータス %></div>
-    <div>
-      <%= f.radio_button :is_deleted, false, checked: true %>
-      <%= f.label :is_deleted, "有効", value: false %>
-      <%= f.radio_button :is_deleted, true %>
-      <%= f.label :is_deleted, "退会", value: true %>
+    <div class="">
+      <label><%= f.radio_button :is_deleted, false, checked: true %>有効</label>
+      <label><%= f.radio_button :is_deleted, true %>退会</label>
     </div>
     
-    <div>
+    <div class="">
       <%= f.submit "変更を保存", class: "" %>
     </div>
   </div>
