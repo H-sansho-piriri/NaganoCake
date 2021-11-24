@@ -1,4 +1,5 @@
 class Admin::OrdersController < ApplicationController
+
   def index
     @orders = Order.all
   end
@@ -6,4 +7,8 @@ class Admin::OrdersController < ApplicationController
   def show
     # @order = Order.find(params[:id])
   end
+  
+  def confirm
+  end
+
 end
