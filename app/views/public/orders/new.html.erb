@@ -1,5 +1,5 @@
 <div class="container">
-  
+
   <div class="row">
     <div class="col-md-4">
       <h3>注文情報入力</h3>
@@ -30,7 +30,7 @@
           <%= f.radio_button :address_number, 2 %>
           <%= f.label :address_number, "登録済住所から選択" %>
           <br>
-            <%= f.select :address_number, options_from_collection_for_select(Shipping.all, :id, :full_address) %>
+            <%= f.select :shipping_id, options_from_collection_for_select(Shipping.all, :id, :full_address) %>
         </div>
 
         <div class=>
@@ -62,7 +62,7 @@
 
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
         <p><input type="radio" name="" value="" checked>ご自身の住所</p>
         <p><input type="radio" name="" value="">登録済み住所から選択</p>

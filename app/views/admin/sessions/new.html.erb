@@ -1,16 +1,24 @@
-<h4>管理者ログイン</h4>
+<div class="'container pt-5">
+  <div class="">
+    <div class="">
 
-<%= form_with model:@admin, url:admin_session_path, local:true do |f| %>
-  <%= render "admin/shared/error_messages", resource: resource %>
-  <div class="">
-    <%= f.label:メールアドレス, class: "" %>
-    <%= f.email_field :email, autofocus:true, placeholder: "sample@example.com", autocomplete: "email", class: "" %>
+  <h4>管理者ログイン</h4>
+  
+    <%= form_with model:@admin, url:admin_session_path, local:true do |f| %>
+      <%= render "admin/shared/error_messages", resource: resource %>
+      <div class="">
+        <%= f.label:メールアドレス, class: "" %>
+        <%= f.email_field :email, autofocus:true, placeholder: "sample@example.com", autocomplete: "email", class: "" %>
+      </div>
+      <div class="">
+        <%= f.label:パスワード, class: "" %>
+        <%= f.password_field :password, autocomplete: "current-password", class: "" %>
+      </div>
+      <div class="">
+        <%= f.submit "ログイン", class: "" %>
+      </div>
+      <% end %>
+    
+    </div>
   </div>
-  <div class="">
-    <%= f.label:パスワード, class: "" %>
-    <%= f.password_field :password, autocomplete: "current-password", class: "" %>
-  </div>
-  <div class="">
-    <%= f.submit "ログイン", class: "" %>
-  </div>
-  <% end %>
+</div>

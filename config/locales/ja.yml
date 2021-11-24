@@ -1,5 +1,23 @@
 ja:
   enums:
+    order:
+      payment_method:
+        credit_card: "クレジットカード"
+        transfer: "銀行振込"
+      status:
+        payment_waiting: "入金待ち"
+        payment_cofirm: "入金確認"
+        making_now: "製作中"
+        preparing_delivery: "発送準備中"
+        shipped: "発送済み"
+    order_detail:
+      making_status:
+        start_impossible: "着手不可"
+        wating: "製作待ち"
+        coming_soon: "製作中"
+        now_on_air: "製作完了"
+        
+
   activerecord:
     errors:
       messages:
@@ -17,7 +35,7 @@ ja:
     - 金
     - 土
     abbr_month_names:
-    - 
+    -
     - 1月
     - 2月
     - 3月
@@ -43,7 +61,7 @@ ja:
       long: "%Y年%m月%d日(%a)"
       short: "%m/%d"
     month_names:
-    - 
+    -
     - 1月
     - 2月
     - 3月
@@ -205,7 +223,4 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
-    order:
-      payment_method:
-        credit_card: "クレジットカード"
-        transfer: "銀行振込"
+
