@@ -11,27 +11,18 @@ class Public::CartProductsController < ApplicationController
     # binding.pry
     @cart_product = CartProduct.new(cart_product_params)
     @cart_product.customer_id = current_customer.id
-    # if
-    @cart_product.save
-    redirect_to customers_cart_products_path
-    # else
-    # render:index
-    # end
-    # @cart_product.customer = current_customer
-    # @cart_product.product.id = params[:product_id]
-    # @task = Task.new(task_params)
-    # @cart_products = CartProduct.all
-    # @cart_product = CartProduct.find(cart_product_params[:product_id])
-    # @cart_product.save
 
-
-
-    # あとで定義
-    # if Product.find_by(name: "aaaa")
-    #   puts "ある"
-    # else
-    #   redirect_to root_path
-    # end
+    # もしカート内に同じ商品があったら
+    if current_customer.cart_products.find_by(product_id: params[:cart_product][:product_id]).present?
+      cart_product = current_customer.cart_products.find_by(product_id: params[:cart_product][:product_id])
+      cart_product.quantity += params[:cart_product][:quantity].to_i
+      cart_product.save
+      redirect_to customers_cart_products_path
+    # なかったら
+    else
+      @cart_product.save
+      redirect_to customers_cart_products_path
+    end
 
   end
 

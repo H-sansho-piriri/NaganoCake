@@ -49,12 +49,8 @@
           <td><%= shipping.address %></td>
           <td><%= shipping.name %></td>
           <td>
-            <%= link_to edit_customers_shipping_path(shipping.id) do %>
-              <button type="button" class="btn btn-success">編集する</button>
-            <% end %>
-            <%= link_to customers_shipping_path(shipping.id), method: :delete do %>
-            <button type="button" class="btn btn-danger">削除する</button>
-            <% end %>
+            <%= link_to "編集する", edit_customers_shipping_path(shipping.id), class: "btn btn-success" %>
+            <%= link_to "削除する", customers_shipping_path(shipping.id), class: "btn btn-danger" ,method: :delete %>
           </td>
         </tr>
         <% end %>
