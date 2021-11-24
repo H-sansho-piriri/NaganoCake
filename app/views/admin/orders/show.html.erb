@@ -17,7 +17,7 @@
       <p><strong>注文日</strong></p>
     </div>
     <div class="col-md-6">
-      <p><%= @order.created_at.to_s(:datetime_jp)</p>
+      <p><%= @order.created_at.to_s(:datetime_jp) %></p>
     </div>
   </div>
 
@@ -27,8 +27,8 @@
     </div>
     <div class="col-md-6">
       <p>
-        〒111-1111　東京都渋谷区神南1丁目19－22　パークウェースクエア24階<br>
-        山田花子
+        <%= @order.postal_code %> <%= @order.address %><br>
+        <%= @order.name %>
       </p>
     </div>
   </div>
@@ -38,7 +38,7 @@
       <p><strong>支払方法</strong></p>
     </div>
     <div class="col-md-6">
-      <p>銀行振込</p>
+      <p><%= @order.payment_method_i18n %></p>
     </div>
   </div>
 
