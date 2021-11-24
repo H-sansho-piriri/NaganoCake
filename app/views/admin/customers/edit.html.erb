@@ -29,7 +29,7 @@
     
     <div class=""><%= f.label :会員ステータス %></div>
     <div class="">
-      <label><%= f.radio_button :is_deleted, false, checked: true %>有効</label>
+      <label><%= f.radio_button :is_deleted?, false, checked: true %>有効</label>
       <label><%= f.radio_button :is_deleted, true %>退会</label>
     </div>
     
