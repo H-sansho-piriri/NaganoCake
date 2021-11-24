@@ -36,7 +36,34 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
+    cart_products = current_customer.cart_products.all
+    @order = current_customer.orders.new(order_params)
+
+    
+    @shipping_fee = 800
+    @total = 0
+    cart_products.each do |cart_product|
+      @total += cart_product.subtotal
+    end
+
+    @order.postage = @shipping_fee
+    @order.total_price = @total
+
+    @order.save
+    cart_products.each do |cart|
+      order_detail = OrderDetail.new
+      order_detail.product_id = cart.product_id
+      order_detail.order_id = @order.id
+      order_detail.quantity = cart.quantity
+      order_detail.price = cart.product.price
+      order_detail.save
+    end
+
+    redirect_to complete_orders_path
+    cart_products.destroy_all
+
   end
+
 
   def complete
   end
