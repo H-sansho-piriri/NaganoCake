@@ -79,7 +79,7 @@
             <td><%= order_detail.product.add_tax_price * order_detail.quantity %></td>
             <td>
             <!--ここの記述怪しい-->
-              <%= form_with url:admin_order_detail_path , model: order_detail, local: true do |f| %>
+              <%= form_with model: order_detail, url: admin_order_detail_path(order_detail), local: true do |f| %>
                 <%= f.select :making_status, OrderDetail.making_statuses.keys.map { |k| [I18n.t("enums.order_detail.making_status.#{k}"), k] } %>
                 <%= f.submit "更新", class: "" %>
               <% end %>
