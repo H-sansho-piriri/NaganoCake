@@ -23,8 +23,6 @@ class Public::CartProductsController < ApplicationController
       @cart_product.save
       redirect_to customers_cart_products_path
     end
-    @cart_product.save
-    redirect_to customers_cart_products_path
 
   end
 

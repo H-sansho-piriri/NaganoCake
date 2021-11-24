@@ -82,13 +82,7 @@
 <!--データ渡す-->
   <div class="row">
     <div class="col-md-6 offset-md-4">
-      <%= form_with model: Order.new, url:orders_path, local: true do |f| %>
-        <% @cart_products.each do |cart_product| %>
-          <%= f.hidden_field :product_id, value: cart_product.product_id %>
-          <%= f.hidden_field :quantity, value: cart_product.quantity %>
-        <% end %>
-      <button type="button" class="btn btn-success">情報入力に進む</button>
-      <% end %>
+      <%= link_to "情報入力へ進む", new_order_path, class: "btn btn-success" %>
     </div>
 
   </div>
