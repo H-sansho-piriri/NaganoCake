@@ -73,10 +73,10 @@
           <tr>
             <td><%= order_detail.product.name %></td>
             <!--価格怪しい-->
-            <td><%= order_detail.price %></td>
+            <td><%= order_detail.product.add_tax_price %></td>
             <td><%= order_detail.quantity %></td>
             <!--価格怪しい-->
-            <td><%= order_detail.price * order_detail.quantity %></td>
+            <td><%= order_detail.product.add_tax_price * order_detail.quantity %></td>
             <td>
             <!--ここの記述怪しい-->
               <%= form_with url:admin_order_detail_path , model: order_detail, local: true do |f| %>
