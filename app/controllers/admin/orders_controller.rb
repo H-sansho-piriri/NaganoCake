@@ -10,12 +10,21 @@ class Admin::OrdersController < ApplicationController
     @order_details = @order.order_details
     @total = 0
     # これだと税抜？
-    @order_details.each do |product|
-      @total += product.price * product.quantity
+    @order_details.each do |order_detail|
+      @total += order_detail.product.add_tax_price * order_detail.quantity
     end
   end
   
-  def confirm
+  def update
+    @order = Order.find(params[:id])
+    @order.update(order_params)
+    redirect_to request.referer
   end
-
+  
+  private
+  def order_params
+    params.require(:order).permit(:status)
+  end
+  
+  
 end
