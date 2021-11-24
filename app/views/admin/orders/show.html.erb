@@ -8,6 +8,7 @@
       <p><strong>購入者</strong></p>
     </div>
     <div class="col-md-6">
+      
       <p><%= @order.name %></p>
     </div>
   </div>
@@ -48,9 +49,9 @@
     </div>
     <div class="col-md-6 d-flex clearfix">
     <!--ここの記述あやしい-->
-      <%= form_with model:@order, url: admin_order_path(@order), method: :PATCH, local:true do |f| %>
+      <%= form_with model: @order, url: admin_order_path(@order), local:true do |f| %>
         <%= f.select :status, Order.statuses.keys.map { |k| [I18n.t("enums.order.status.#{k}"), k] } %>
-        <%= f.submit "更新", class: "" %>
+        <%= f.submit "更新" %>
       <% end %>
     </div>
   </div>
@@ -67,24 +68,25 @@
             <th class="">製作ステータス</th>
           </tr>
         </thead>
-        <%= @order_details.each do |order_detail| %>
+        <% @order_details.each do |order_detail| %>
         <tbody>
           <tr>
-            <td><%= order_detail.products.name %></td>
+            <td><%= order_detail.product.name %></td>
             <!--価格怪しい-->
             <td><%= order_detail.price %></td>
             <td><%= order_detail.quantity %></td>
             <!--価格怪しい-->
-            <td><%= order_detail.price * order_details.quantity %></td>
+            <td><%= order_detail.price * order_detail.quantity %></td>
             <td>
             <!--ここの記述怪しい-->
-              <%= form_with url: ,model: order_detail, local: true do |f| %>
+              <%= form_with url:admin_order_detail_path , model: order_detail, local: true do |f| %>
                 <%= f.select :making_status, OrderDetail.making_statuses.keys.map { |k| [I18n.t("enums.order_detail.making_status.#{k}"), k] } %>
                 <%= f.submit "更新", class: "" %>
               <% end %>
             </td>
           </tr>
         </tbody>
+        <% end %>
           <tr>
             <th></th>
           </tr>

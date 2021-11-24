@@ -5,4 +5,5 @@ class Product < ApplicationRecord
   end
   belongs_to :category
   has_many :cart_products, dependent: :destroy
+  has_many :order_details
 end
