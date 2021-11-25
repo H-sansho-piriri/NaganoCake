@@ -12,7 +12,7 @@
   <div class="row justify-content-center">
     <div class="d-inline-flex">
       <div><%= link_to "退会しない", customers_path, class: "btn btn-primary btn-block" %></div>
-      <div><%= link_to "退会する", withdraw_customers_path(@customer), method: :patch, class: "btn btn-danger btn-block ml-3" %></div>
+      <div><%= link_to "退会する", withdraw_customers_path(current_customer), method: :patch, class: "btn btn-danger btn-block ml-3" %></div>
     </div>
   </div>
 </div>
