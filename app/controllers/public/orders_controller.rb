@@ -39,7 +39,7 @@ class Public::OrdersController < ApplicationController
     cart_products = current_customer.cart_products.all
     @order = current_customer.orders.new(order_params)
 
-    
+
     @shipping_fee = 800
     @total = 0
     cart_products.each do |cart_product|
@@ -55,7 +55,7 @@ class Public::OrdersController < ApplicationController
       order_detail.product_id = cart.product_id
       order_detail.order_id = @order.id
       order_detail.quantity = cart.quantity
-      order_detail.price = cart.product.price
+      order_detail.price = cart.product.add_tax_price
       order_detail.save
     end
 
@@ -69,9 +69,12 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+    @orders = Order.where(customer_id: current_customer.id)
   end
 
   def show
+    @order = Order.find(params[:id])
+    @orders = OrderDetail.find(params[:id])
   end
 
   private

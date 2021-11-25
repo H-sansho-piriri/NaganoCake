@@ -8,8 +8,8 @@
       <p><strong>購入者</strong></p>
     </div>
     <div class="col-md-6">
-      
-      <p><%= @order.name %></p>
+
+      <p><%= @order.customer.full_name %></p>
     </div>
   </div>
 
@@ -18,7 +18,7 @@
       <p><strong>注文日</strong></p>
     </div>
     <div class="col-md-6">
-      <p><%= @order.created_at.to_s(:datetime_jp) %></p>
+      <p><%= @order.created_at.strftime("%Y/%m/%d") %></p>
     </div>
   </div>
 
@@ -73,13 +73,13 @@
           <tr>
             <td><%= order_detail.product.name %></td>
             <!--価格怪しい-->
-            <td><%= order_detail.price %></td>
+            <td><%= order_detail.product.add_tax_price %></td>
             <td><%= order_detail.quantity %></td>
             <!--価格怪しい-->
-            <td><%= order_detail.price * order_detail.quantity %></td>
+            <td><%= order_detail.product.add_tax_price * order_detail.quantity %></td>
             <td>
             <!--ここの記述怪しい-->
-              <%= form_with url:admin_order_detail_path , model: order_detail, local: true do |f| %>
+              <%= form_with model: order_detail, url: admin_order_detail_path(order_detail), local: true do |f| %>
                 <%= f.select :making_status, OrderDetail.making_statuses.keys.map { |k| [I18n.t("enums.order_detail.making_status.#{k}"), k] } %>
                 <%= f.submit "更新", class: "" %>
               <% end %>
@@ -93,7 +93,7 @@
         </tbody>
       </table>
     </div>
-    
+
     <div>
       <table>
         <tr>
@@ -111,6 +111,6 @@
           <td><%= @total + 800 %>円</td>
         </tr>
       </table>
-      
+
     </div>
   </div>
