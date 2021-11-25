@@ -42,7 +42,7 @@ class Public::OrdersController < ApplicationController
     
     @shipping_fee = 800
     @total = 0
-    cart_products.each do |cart_product|
+    @cart_products.each do |cart_product|
       @total += cart_product.subtotal
     end
 
