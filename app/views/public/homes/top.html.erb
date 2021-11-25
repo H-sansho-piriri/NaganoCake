@@ -14,7 +14,8 @@
       </div>
     </div>
     <div class="col-9 mx-5">
-      <div>
+      <div class="bg", style="padding-top:100px; background-color:#000;">
+      <div class="col-5 mx-auto introduction">
         <p>
           ようこそ、ながのCAKEへ！<br>
           このサイトは、ケーキ販売のECサイトになりますが。<br>
@@ -22,7 +23,8 @@
           購入には会員登録が必要になります。
         </p>
       </div>
-      <h4 class="font-weight-bold mt-3">新着商品</h4>
+      </div>
+      <h4 style="display:inline-block;">新着商品</h4>
       <div class="d-flex flex-row mt-2">
         <% @products.each do |product| %>
         <div class="d-flex flex-column mr-3">
@@ -40,4 +42,3 @@
     </div>
   </div>
 </div>
-
