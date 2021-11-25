@@ -39,7 +39,7 @@ class Public::OrdersController < ApplicationController
     cart_products = current_customer.cart_products.all
     @order = current_customer.orders.new(order_params)
 
-    
+
     @shipping_fee = 800
     @total = 0
     cart_products.each do |cart_product|
