@@ -1,4 +1,7 @@
 class Public::CartProductsController < ApplicationController
+  
+  before_action authenticate_customer!
+  
   def index
     @cart_products = CartProduct.all
     @total = 0
@@ -49,11 +52,10 @@ class Public::CartProductsController < ApplicationController
 
 
 #product_idとquantityを取り出し格納するため
-private
-def cart_product_params
-    params.require(:cart_product).permit(:product_id, :quantity)
+  private
+
+  def cart_product_params
+      params.require(:cart_product).permit(:product_id, :quantity)
+  end
+
 end
-
-
-end
-
