@@ -1,4 +1,7 @@
 class Public::CartProductsController < ApplicationController
+  
+  before_action authenticate_customer!
+  
   def index
     @cart_products = CartProduct.all
     @total = 0
