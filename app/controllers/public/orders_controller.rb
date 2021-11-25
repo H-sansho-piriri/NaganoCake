@@ -55,7 +55,7 @@ class Public::OrdersController < ApplicationController
       order_detail.product_id = cart.product_id
       order_detail.order_id = @order.id
       order_detail.quantity = cart.quantity
-      order_detail.price = cart.product.price
+      order_detail.price = cart.product.add_tax_price
       order_detail.save
     end
 
@@ -73,6 +73,8 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
+    @order = Order.find(params[:id])
+    @orders = OrderDetail.find(params[:id])
   end
 
   private

@@ -8,7 +8,7 @@
       <p><strong>購入者</strong></p>
     </div>
     <div class="col-md-6">
-      
+
       <p><%= @order.customer.full_name %></p>
     </div>
   </div>
@@ -18,7 +18,7 @@
       <p><strong>注文日</strong></p>
     </div>
     <div class="col-md-6">
-      <p><%= @order.created_at.to_s(:datetime_jp) %></p>
+      <p><%= @order.created_at.strftime("%Y/%m/%d") %></p>
     </div>
   </div>
 

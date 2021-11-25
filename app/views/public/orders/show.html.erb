@@ -6,20 +6,20 @@
       <table>
         <tr>
           <td>注文日</td>
+          <td><%= @order.created_at.strftime("%Y/%m/%d") %></td>
+        </tr>
+        <tr>
           <!--データから入力-->
-          <td>住所</td>
-        </tr>
-        <tr>
           <td>配送先</td>
-          <td>配送先住所</td>
+          <td><%= @order.full_address %></td>
         </tr>
         <tr>
-          <td支払方法></td>
           <td>支払方法</td>
+          <td><%= @order.payment_method_i18n %></td>
         </tr>
         <tr>
           <td>ステータス</td>
-          <td>ステータス</td>
+          <td><%= @order.status_i18n %></td>
         </tr>
       </table>
     </div>
@@ -29,15 +29,15 @@
         <!--各項目2段目はデータから入力-->
         <tr>
           <td>商品合計</td>
-          <td>商品合計</td>
+          <td><%= @order.total_price %></td>
         </tr>
         <tr>
           <td>配送料</td>
-          <td>配送料</td>
+          <td><%= @order.postage %></td>
         </tr>
         <tr>
           <td>ご請求額</td>
-          <td>ご請求額</td>
+          <td><%= @order.total_price + @order.postage %></td>
         </tr>
       </table>
     </div>
@@ -56,12 +56,14 @@
         </thead>
         <tbody>
           <!--以下データ入力-->
+          <% @order.order_details.each do |order_detail| %>
           <tr>
-            <td>shouhin</td>
-            <td>tannka</td>
-            <td>kosuu</td>
-            <td>shoukei</td>
+            <td><%= order_detail.product.name %></td>
+            <td><%= order_detail.price %></td>
+            <td><%= order_detail.quantity %></td>
+            <td><%= order_detail.price * order_detail.quantity %></td>
           </tr>
+          <% end %>
         </tbody>
       </table>
     </div>

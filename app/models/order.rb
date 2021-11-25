@@ -8,4 +8,8 @@ class Order < ApplicationRecord
     '〒' + postal_code + ' ' + address + ' ' + name
   end
 
+  def add_tax_price
+    (self.price * 1.1).floor
+  end
+
 end
