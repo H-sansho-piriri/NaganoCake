@@ -4,6 +4,7 @@ class Admin::OrderDetailsController < ApplicationController
     @order_detail = OrderDetail.find(params[:id])
     @order_detail.update(order_details_params)
 
+
     redirect_to request.referer
   end
 
