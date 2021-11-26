@@ -23,7 +23,7 @@
             <% end %>
           </div>
           <div><%= product.name %></div>
-          <div><%= product.price %></div>
+          <div>¥ <%= product.price.to_s(:delimited) %></div>
         </div>
         <% end %>
         <%= paginate @products %>

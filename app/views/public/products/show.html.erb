@@ -22,7 +22,7 @@
     <div class="col-5 mx-5">
       <h3 class="mb-3"><%= @product.name %></h3>
       <p><%= @product.caption %></p>
-      <p><%= @product.price %></p>
+      <p>¥ <%= @product.add_tax_price.to_s(:delimited) %><span style="font-size:12px;">（税込）</span></p>
       <%= form_with model: @cart_product, url: customers_cart_products_path(current_customer), local:true do |f| %>
         <%= f.hidden_field :customer_id, value: current_customer.id %>
         <%= f.hidden_field :product_id, value: @product.id %>
