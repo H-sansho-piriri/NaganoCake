@@ -18,11 +18,11 @@ class Admin::OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     @order.update(order_params)
-    
+
     if @order.status == "payment_cofirm"
       @order.order_details.update(making_status: "waiting")
     end
-    
+
     redirect_to request.referer
 
   end
