@@ -23,7 +23,13 @@ class Admin::OrdersController < ApplicationController
       @order.order_details.update(making_status: "wating")
     end
 
+    
+    if @order.status == "payment_cofirm"
+      @order.order_details.update(making_status: "waiting")
+    end
+    
     redirect_to request.referer
+
   end
 
 
