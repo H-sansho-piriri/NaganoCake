@@ -13,7 +13,7 @@ ja:
     order_detail:
       making_status:
         start_impossible: "着手不可"
-        wating: "製作待ち"
+        waiting: "製作待ち"
         coming_soon: "製作中"
         now_on_air: "製作完了"
         
