@@ -17,7 +17,6 @@ class Admin::OrderDetailsController < ApplicationController
     redirect_to request.referer
   end
 
-
   private
   def order_details_params
     params.require(:order_detail).permit(:making_status)

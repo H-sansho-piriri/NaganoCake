@@ -1,12 +1,9 @@
 <div class="container">
 
   <div class="row">
-    <div class="col-md-4">
-      <h3>注文情報入力</h3>
-    </div>
-
-    <%= form_with model: @order, url: confirm_orders_path, local: true do |f| %>
     <div class="col-md-10">
+      <h3>注文情報入力</h3>
+    <%= form_with model: @order, url: confirm_orders_path, local: true do |f| %>
       <h4>支払い方法</h4>
         <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
         <%= f.label :payment_method, Order.payment_methods_i18n[:credit_card] %>

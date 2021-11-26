@@ -1,31 +1,32 @@
 <div class="container">
-  <h6>商品新規登録</h6>
+  <h3>商品新規登録</h3>
   <div class="row">
+
     <!--colのサイズ設定-->
     <%= form_with model: @product, url: admin_products_path, local: true do |f| %>
-      <table>
+      <table class="cart_products">
         <tr>
-          <td>商品画像</td>
+          <th>商品画像</th>
           <td><%= f.attachment_field :image %></td>
         </tr>
         <tr>
-          <td>商品名</td>
+          <th>商品名</th>
           <td><%= f.text_field :name %></td>
         </tr>
         <tr>
-          <td>商品説明</td>
+          <th>商品説明</th>
           <td><%= f.text_area :caption %></td>
         </tr>
         <tr>
-          <td>ジャンル</td>
+          <th>ジャンル</th>
           <td><%= f.collection_select(:category_id, @categories, :id, :name, prompt: "選択してください") %></td>
         </tr>
         <tr>
-          <td>税抜き価格</td>
+          <th>税抜き価格</th>
           <td><%= f.text_field :price %>円</td>
         </tr>
         <tr>
-          <td>販売ステータス</td>
+          <th>販売ステータス</th>
           <td>
             <%= f.radio_button :is_active, :true %>
             <%= f.label :is_active, "販売中" %>
@@ -34,7 +35,8 @@
           </td>
         </tr>
       </table>
-      <%= f.submit "新規登録" %>
+      <br>
+      <%= f.submit "新規登録" , class: 'btn btn-primary' %>
     <% end %>
   </div>
 </div>

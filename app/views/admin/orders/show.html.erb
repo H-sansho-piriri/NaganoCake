@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <h3 class="col-md-5">注文履歴詳細</h2>
+    <h3>注文履歴詳細</h3>
   </div>
 
   <div class="row">
@@ -61,25 +61,22 @@
 
   <div class="row">
     <div class="col-md-8">
-      <table class="table table-sm">
-        <thead class="">
-          <tr>
-            <th class="">商品名</th>
-            <th class="">単価</th>
-            <th class="">数量</th>
-            <th class="">小計</th>
-            <th class="">製作ステータス</th>
-          </tr>
-        </thead>
+      <table class="table cart_products">
+        <tr>
+            <th>商品名</th>
+            <th>単価</th>
+            <th>数量</th>
+            <th>小計</th>
+            <th>製作ステータス</th>
+        </tr>
         <% @order_details.each do |order_detail| %>
-        <tbody>
           <tr>
             <td><%= order_detail.product.name %></td>
             <!--価格怪しい-->
-            <td><%= order_detail.product.add_tax_price %></td>
+            <td><%= order_detail.product.add_tax_price.to_s(:delimited) %></td>
             <td><%= order_detail.quantity %></td>
             <!--価格怪しい-->
-            <td><%= order_detail.product.add_tax_price * order_detail.quantity %></td>
+            <td><%= (order_detail.product.add_tax_price * order_detail.quantity).to_s(:delimited) %>円</td>
             <td>
             <!--ここの記述怪しい-->
               <%= form_with model: order_detail, url: admin_order_detail_path(order_detail), local: true do |f| %>
@@ -88,30 +85,25 @@
               <% end %>
             </td>
           </tr>
-        </tbody>
         <% end %>
-          <tr>
-            <th></th>
-          </tr>
-        </tbody>
       </table>
     </div>
 
     <div>
-      <table>
+      <table class="cart_products">
         <tr>
-          <td>商品合計</td>
+          <th>商品合計</th>
           <!--商品合計はeachメソッドでコントローラーに定義-->
-          <td><%= @total %></td>
+          <td><%= @total.to_s(:delimited) %>円</td>
         </tr>
         <tr>
-          <td>送料</td>
+          <th>送料</th>
           <td>800円</td>
         </tr>
         <tr>
-          <td>請求金額</td>
+          <th>請求金額</th>
           <!--ここの記述わからない-->
-          <td><%= @total + 800 %>円</td>
+          <td><%= (@total + 800).to_s(:delimited) %>円</td>
         </tr>
       </table>
 
