@@ -11,12 +11,6 @@
 
   <body>
 
-    <% if flash[:notice] %>
-      <%= flash[:notice] %>
-    <% elsif flash[:alert] %>
-      <%= flash[:alert] %>
-    <% end %>
-
     <header>
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
@@ -69,6 +63,14 @@
     </header>
 
     <main>
+
+      <div class="flash">
+        <% if flash[:notice] %>
+          <div class="notice"><%= flash[:notice] %></div>
+        <% elsif flash[:alert] %>
+          <div class="notice"><%= flash[:alert] %></div>
+        <% end %>
+      </div>
 
       <%= yield %>
 
