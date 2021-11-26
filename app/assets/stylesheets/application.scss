@@ -73,7 +73,7 @@ h4 {
 
 h4:first-letter {
   font-size: 150%;
-  color: #800080;
+  color: #F2B900;
   font-weight:bold;
 }
 
@@ -94,6 +94,7 @@ h6{
 
 .cart_products{
     border:1px solid #000;
+    padding-bottom:15px;
 }
 
 .cart_products th{
@@ -105,4 +106,19 @@ h6{
 .cart_products td{
     border:1px solid #000;
     padding:10px;
+}
+
+.categories{
+  border:1px solid #000;
+
+}
+.categories th{
+
+  padding:10px;
+  background-color:#eee;
+}
+
+.categories td{
+  padding:10px;
+
 }

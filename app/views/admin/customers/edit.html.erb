@@ -1,4 +1,5 @@
-<h4><%= @customer.full_name %>さんの会員情報編集</h4>
+<div class="container">
+<h3><%= @customer.full_name %>さんの会員情報編集</h3>
 
 <%= form_with model:@customer, url: admin_customer_path, method: :PATCH, local:true do |f| %>
 <%= render 'layouts/error_messages', model: f.object %>
@@ -6,35 +7,36 @@
     <div class="">会員ID</div>
     <div class=""><%= @customer.id %></div>
     <div class=""><%= f.label :氏名 %></div>
-    
+
     <div class=""><%= f.text_field :last_name, class: "" %></div>
     <div class=""><%= f.text_field :first_name, class: "" %></div>
     <div class=""></div>
-    
+
     <div class=""><%= f.label :フリガナ %></div>
     <div class=""><%= f.text_field :last_name_kana, class: "" %></div>
     <div class=""><%= f.text_field :first_name_kana, class: "" %></div>
-    
+
     <div class=""><%= f.label :郵便番号 %></div>
     <div class=""><%= f.text_field :postal_code, class: "" %></div>
-    
+
     <div class=""><%= f.label :住所 %></div>
     <div class=""><%= f.text_field :address, class: "" %></div>
-    
+
     <div class=""><%= f.label :電話番号 %></div>
     <div class=""><%= f.text_field :phone_number %></div>
-    
+
     <div class=""><%= f.label :メールアドレス %></div>
     <div class=""><%= f.email_field :email, class: "" %></div>
-    
+
     <div class=""><%= f.label :会員ステータス %></div>
     <div class="">
       <label><%= f.radio_button :is_deleted?, false, checked: true %>有効</label>
       <label><%= f.radio_button :is_deleted, true %>退会</label>
     </div>
-    
+
     <div class="">
       <%= f.submit "変更を保存", class: "" %>
     </div>
   </div>
 <% end %>
+</div>
