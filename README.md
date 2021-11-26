@@ -10,7 +10,7 @@ InstagramのDMやメールで通販の注文を受けていたが、情報管理
 理機能を含んだ通販サイトを開設しようと思い至った。
 ## 【実装機能】
 * 会員側
-  * あ
+  * 会員登録
   * い
   * う
 * 管理者側
@@ -24,7 +24,7 @@ InstagramのDMやメールで通販の注文を受けていたが、情報管理
 * [Qiita](http://qiita.com)
 * [要件定義書]()
 * [ER図]()
-* [テーブル定義書]()
+* [テーブル定義書](https://docs.google.com/spreadsheets/d/1IIGErIiRCeMoZLQxkHS6TNV7i_zJbbs_jDjifImiGNo/edit#gid=1437272886)
 * [詳細設計]()
 
 ## 【開発member】
