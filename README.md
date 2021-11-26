@@ -10,10 +10,12 @@ InstagramのDMやメールで通販の注文を受けていたが、情報管理
 ## 【環境】
 ## 【設計】
 ## 【開発member】
-* よねちゃん　(レイアウトダンサー)
-* Turkey　(七面鳥はやっぱり照れる)
-* おぐりん　（Disneyフリーク）
-* ファルコン　(意気地なしマスカレード)
+* よねちゃん(レイアウトダンサー)
+* Turkey(七面鳥はやっぱり照れる)
+* おぐりん（Disneyフリーク）
+* ファルコン(意気地なしマスカレード)
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
