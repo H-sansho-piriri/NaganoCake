@@ -21,30 +21,88 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color:#2F4F4F;
  }
 
  header {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #a9a9a9;
+  background-color:#CDBBEC;
  }
 
 .navbar-link {
  margin-left: 30px;
 }
 
-footer {
- border-top: 1px solid black;
+footer{
+  border-top: 1px solid #a9a9a9;
+  padding-top:15px;
+  padding-bottom:15px;
+  text-align:center;
+  background-color:#CDBBEC;
+  height:100px;
 }
 
 main {
- margin-top: 15px;
- margin-bottom: 15px;
+ padding-top: 20px;
+ padding-bottom: 20px;
+ // background-color:#eee;
 }
 
 td {
-
   border: 1px solid black !important;
 }
 
-body{
-  font-family:'メイリオ', 'Meiryo', sans-serif;
+.bg{
+  height:300px;
+  background-image:url(top.jpg);
+  background-size: cover;
+}
+
+.introduction{
+  padding-top:10px;
+  padding-bottom:1px;
+  background-color: rgba(255, 255, 255, 0.5)
+}
+
+h3{
+ display:inline-block;
+}
+h4 {
+  padding-top:10px;
+}
+
+h4:first-letter {
+  font-size: 150%;
+  color: #800080;
+  font-weight:bold;
+}
+
+.category{
+ background-color:#adadad;
+}
+
+
+h6{
+ text-align:center;
+ font-size:18px;
+ padding:5px;
+}
+
+.categorymenu{
+ line-height:22pt;
+}
+
+.cart_products{
+    border:1px solid #000;
+}
+
+.cart_products th{
+    border:1px solid #000;
+    padding:10px;
+    background-color:#eee;
+}
+
+.cart_products td{
+    border:1px solid #000;
+    padding:10px;
 }

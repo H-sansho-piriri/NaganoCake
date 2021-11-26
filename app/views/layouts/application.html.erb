@@ -16,15 +16,16 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col align-self-center">
-              <a class="navbar-brand" href="/"><span class="font-weight-bold">Nagano Cake</span></a>
+              <a class="navbar-brand" href="/">
+                <img src="../assets/logo.png" width="120px" height="120px"></a>
             </div>
           </div>
-          <div class="col align-self-center">
+          <div class="col-md-2 align-self-center">
             <% if customer_signed_in? %>
               <p>ようこそ<%= current_customer.last_name %>さん！</p>
             <% end %>
           </div>
-          <div class="col">
+          <div class="col-md-7">
             <ul class="navbar-nav justify-content-end">
               <% if customer_signed_in? %>
                 <li class="navbar-link"><%= link_to "マイページ", customers_path, class: "btn btn-outline-dark" %></li>
@@ -44,8 +45,8 @@
                 <li class="navbar-link"><%= link_to "ログイン", new_customer_session_path, class: "btn btn-outline-dark" %></li>
               <% end %>
             </ul>
-            <div class="row my-1">
-              <div class="col">
+            <div class="row my-1 justify-content-end">
+              <div class="col-md-7">
                 <div class="input-group justify-content-end">
                   <input type="text" class="form-control col-5" placeholder="Search" aria-describedby="inputGroupPrepend2" required>
                   <span class="input-group-prepend" id="inputGroupPrepend2">
@@ -67,6 +68,6 @@
 
     </main>
 
-    <footer></footer>
+    <footer>©Sansho-Piriri️</footer>
   </body>
 </html>
