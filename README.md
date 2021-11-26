@@ -1,4 +1,4 @@
-# 長野CAKE
+# 長野　CAKE
 ![75301556_624 v1637121607](https://user-images.githubusercontent.com/89951429/143513600-01734962-148f-403f-a20e-ee1658184a21.jpg)
 
 ## 【概要】
@@ -12,6 +12,8 @@ InstagramのDMやメールで通販の注文を受けていたが、情報管理
 * Ruby 2.6.3
 * Rails 5.2.6
 ## 【設計】
+* [要件定義書]https://wals.s3-ap-northeast-1.amazonaws.com/curriculum/ec_site/design_documents/commit_ecsite_rdd.pdf
+* 
 
 ## 【開発member】
 * よねちゃん(レイアウトダンサー)
