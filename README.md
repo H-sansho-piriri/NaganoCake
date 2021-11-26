@@ -1,7 +1,5 @@
 # 長野CAKE
-![スクリーンショット 2021-11-26 17 18 05](https://user-images.githubusercontent.com/89951429/143549398-8a116d23-599b-42d4-a0cf-7d833eb01a95.png)
-
-
+![スクリーンショット 2021-11-26 17 24 14](https://user-images.githubusercontent.com/89951429/143549998-37757407-eb11-4b7b-8829-4836a24d2786.png)
 ## 【概要】
 長野県にある小さな洋菓子店「ながのCAKE」の商品を通販するためのECサイト開発。
 ## 【背景】
