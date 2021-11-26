@@ -12,8 +12,7 @@ InstagramのDMやメールで通販の注文を受けていたが、情報管理
 * Ruby 2.6.3
 * Rails 5.2.6
 ## 【設計】
-* [要件定義書]https://wals.s3-ap-northeast-1.amazonaws.com/curriculum/ec_site/design_documents/commit_ecsite_rdd.pdf
-* 
+* [Qiita](http://qiita.com)
 
 ## 【開発member】
 * よねちゃん(レイアウトダンサー)
