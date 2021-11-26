@@ -20,7 +20,9 @@ h4 {
   padding-top:10px;
 }
 
-// h4:first-letter {
-//   font-size: 150%;
-//   color: #eb6100;
-// }
+h4:first-letter {
+  font-size: 150%;
+  color: #eb6100;
+  font-weight:bold;
+}
+
