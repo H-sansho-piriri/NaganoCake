@@ -20,11 +20,6 @@ class Admin::OrdersController < ApplicationController
     @order.update(order_params)
 
     if @order.status == "payment_cofirm"
-      @order.order_details.update(making_status: "wating")
-    end
-
-
-    if @order.status == "payment_cofirm"
       @order.order_details.update(making_status: "waiting")
     end
 
@@ -38,6 +33,5 @@ class Admin::OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:status)
   end
-
 
 end
