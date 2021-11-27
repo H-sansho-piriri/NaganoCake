@@ -7,9 +7,11 @@ class Admin::OrderDetailsController < ApplicationController
 
 
     if @order_detail.making_status == "coming_soon"
+      flash[:notice] = "もう少しで送れるぞ！"
       @order_detail.order.update(status: "making_now")
 
     elsif @order.order_details.where(making_status: "now_on_air").count == @order.order_details.count
+      flash[:notice] = "お客様に笑顔を！"
       @order_detail.order.update(status: "preparing_delivery")
 
     end

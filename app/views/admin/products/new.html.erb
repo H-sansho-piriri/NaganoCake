@@ -4,6 +4,9 @@
 
     <!--colのサイズ設定-->
     <%= form_with model: @product, url: admin_products_path, local: true do |f| %>
+    <div class="col">
+      <%= render "public/shared/error_messages", resource: @product %>
+    </div>
       <table class="cart_products">
         <tr>
           <th>商品画像</th>

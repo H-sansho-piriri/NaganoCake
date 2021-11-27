@@ -64,16 +64,27 @@
           </div>
         </div>
       </nav>
-
-
     </header>
+
+    <% if flash[:notice] %>
+      <div class="notification text-info">
+        <p class="alert alert-success"><%= notice %></p>
+      </div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="notification text-danger">
+        <p class="alert alert-danger"><%= alert %></p>
+      </div>
+    <% end %>
 
     <main>
 
-      <%= yield %>
 
+
+      <%= yield %>
     </main>
 
     <footer>©Sansho-Piriri️</footer>
+
   </body>
 </html>

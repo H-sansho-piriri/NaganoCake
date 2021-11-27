@@ -1,7 +1,3 @@
-<div class="flash">
-  <%= flash[:alert] %>
-</div>
-
 <div class="container">
   <div class="row mb-3">
     <h4 class="col-md-3">ログイン</h4>
@@ -26,7 +22,7 @@
   </div>
   <% end %>
 
-  <div>
-    <h6>会員登録がお済みでない方</h6>
-    <p><%= render "public/shared/links" %>から新規登録を行ってね。</p>
+  <div class="row">
+    <h6 class="col-md-3">会員登録がお済みでない方</h6>
+    <p class="col-md-10 ml-5"><%= render "public/shared/links" %>から新規登録を行ってね。</p>
   </div>

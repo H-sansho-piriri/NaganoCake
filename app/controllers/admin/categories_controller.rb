@@ -7,8 +7,15 @@ class Admin::CategoriesController < ApplicationController
 
   def create
     @category = Category.new(category_params)
-    @category.save
-    redirect_to admin_categories_path
+    if @category.save
+      flash[:notice] = "ジャンルを追加したよ。"
+      redirect_to admin_categories_path
+    else
+      flash[:alert] = "もう一度入力してね。"
+      @categories = Category.all
+      render :index
+    end
+
   end
 
   def edit
@@ -18,8 +25,10 @@ class Admin::CategoriesController < ApplicationController
   def update
     @category = Category.find(params[:id])
     if @category.update(category_params)
+      flash[:notice] = "ジャンルを編集したよ。"
       redirect_to admin_categories_path
     else
+      flash[:alert] = "もう一度入力してね。"
       render :edit
     end
   end

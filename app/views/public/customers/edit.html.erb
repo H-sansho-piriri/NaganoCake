@@ -1,46 +1,47 @@
 <div class="container">
-  <div class="row">
-    <h3 class="col-md-5">会員情報編集</h2>
+  <div class="row mb-3">
+    <h4 class="col-md-3">会員情報編集</h4>
   </div>
 
-    <%= form_with model: @customer, url: customers_path(current_customer), local:true do |f| %>
-      <div class="form-group row">
-        <div class="d-flex">
-          <%= f.label :"名前" %>
-          <%= f.label :"(姓)" %>
-          <%= f.text_field :last_name, autofocus: true, placeholder: "令和", class: "form-control" %>
-          <%= f.label :"(名)" %>
-          <%= f.text_field :first_name, placeholder: "道子", class: "form-control" %>
-        </div>
-      </div>
-      <div class="form-group row">
-        <%= f.label :"フリガナ" %>
-        <%= f.label :"(セイ)" %>
-        <%= f.text_field :last_name_kana, placeholder: "レイワ", class: "form-control" %>
-        <%= f.label :"(メイ)" %>
-        <%= f.text_field :first_name_kana, placeholder: "ミチコ", class: "form-control" %>
-      </div>
-      <div class="form-group row">
-        <%= f.label :"メールアドレス" %>
-        <%= f.email_field :email, placeholder: "sample@example.com", class: "form-control" %>
-      </div>
-      <div class="form-group row">
-        <%= f.label :"郵便番号(ハイフン無し)" %>
-        <%= f.text_field :postal_code, placeholder: "0000000", class: "form-control" %>
-      </div>
-      <div class="form-group row">
-        <%= f.label :"住所" %>
-        <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", class: "form-control" %>
-      </div>
-      <div class="form-group row">
-        <%= f.label :"電話番号(ハイフン無し)" %>
-        <%= f.text_field :phone_number, placeholder: "00000000000", class: "form-control" %>
-      </div>
-      <div class="form-group row">
-        <%= f.submit "編集内容を保存", class: "btn btn-success" %>
-      </div>
+  <%= form_with model: @customer, url: customers_path(current_customer), local:true do |f| %>
+  <div class="col">
+    <%= render "public/shared/error_messages", resource: @customer %>
+  </div>
+    <div class="form-group row">
+      <%= f.label :"名前", class: "col-md-3" %>
+      <%= f.label :"(姓)" %>
+      <%= f.text_field :last_name, autofocus: true, placeholder: "令和", class: "col-md-2 form-control" %>
+      <%= f.label :"(名)", class: "ml-3" %>
+      <%= f.text_field :first_name, placeholder: "道子", class: "col-md-2 form-control" %>
+    </div>
+    <div class="form-group row">
+      <%= f.label :"フリガナ", class: "col-md-3" %>
+      <%= f.label :"(セイ)" %>
+      <%= f.text_field :last_name_kana, placeholder: "レイワ", class: "col-md-2 form-control" %>
+      <%= f.label :"(メイ)", class: "ml-3" %>
+      <%= f.text_field :first_name_kana, placeholder: "ミチコ", class: "col-md-2 form-control" %>
+    </div>
+    <div class="form-group row">
+      <%= f.label :"メールアドレス", class: "col-md-3" %>
+      <%= f.email_field :email, placeholder: "sample@example.com", class: "col-md-5 form-control" %>
+    </div>
+    <div class="form-group row">
+      <%= f.label :"郵便番号(ハイフン無し)", class: "col-md-3" %>
+      <%= f.text_field :postal_code, placeholder: "0000000", class: "col-md-5 form-control" %>
+    </div>
+    <div class="form-group row">
+      <%= f.label :"住所", class: "col-md-3" %>
+      <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", class: "col-md-5 form-control" %>
+    </div>
+    <div class="form-group row">
+      <%= f.label :"電話番号(ハイフン無し)", class: "col-md-3" %>
+      <%= f.text_field :phone_number, placeholder: "00000000000", class: "col-md-5 form-control" %>
+    </div>
+    <div class="form-group row d-flex">
+      <%= f.submit "編集内容を保存", class: "btn btn-success col-md-2 offset-3" %>
+      <%= link_to "退会する", unsubscribe_customers_path, class: "btn btn-danger col-md-1 offset-1" %>
+    </div>
     <% end %>
-    <%= link_to "退会する", unsubscribe_customers_path, class: "btn btn-danger" %>
 
   </div>
 </div>

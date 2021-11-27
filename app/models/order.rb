@@ -12,4 +12,8 @@ class Order < ApplicationRecord
     (self.price * 1.1).floor
   end
 
+  validates :payment_method, presence: true
+  validates :postal_code, presence: true, format: { with: /\A\d{7}\z/ }
+  validates :address, presence: true
+  validates :name, presence: true
 end

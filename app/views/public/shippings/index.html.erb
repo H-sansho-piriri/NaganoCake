@@ -4,6 +4,9 @@
   </div>
 
   <%= form_with model:@shipping,url:"/customers/shippings", local:true do |f| %>
+  <div class="col">
+    <%= render "public/shared/error_messages", resource: @shipping %>
+  </div>
     <div class="form-group row">
       <label for="" class="col-md-4 col-form-label">郵便番号（ハイフンなし）</label>
 
