@@ -3,8 +3,15 @@
 <!--<button class="input-group-text" id="inputGroupPrepend2"><i class="fas fa-search"></i></button>-->
 <!--</span>-->
 <%= form_with url: products_search_path, method: :get, local: true do |f| %>
-  <div>
-    <%= f.text_field :keyword, placeholder: "キーワード", class: "" %>
-    <%= f.submit "Search", class: "" %>
+  <div class="form-group row", style="padding-top:20px;">
+    <span>
+    <%= f.text_field :keyword, style: "background-color:rgba(255,255,255,0.3);", placeholder: "キーワード", class: "form-control" %>
+    </span>
+    <span>
+    <%= button_tag :type => "submit", :class =>"btn btn-default btn-s-md" do %>
+      <i class="fas fa-search-plus fa-2x"></i>
+    <% end %>
+    </span>
   </div>
 <% end %>
+
