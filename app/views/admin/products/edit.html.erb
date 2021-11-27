@@ -1,0 +1,41 @@
+<div class="container">
+  <h3>商品編集</h3>
+  <div class="row">
+    <!--colのサイズ設定-->
+    <%= form_with model: @product, url: admin_product_path(@product.id), local: true do |f| %>
+      <table class="cart_products">
+        <tr>
+          <th>商品画像</th>
+          <td><%= f.attachment_field :image %></td>
+        </tr>
+        <tr>
+          <th>商品名</th>
+          <td><%= f.text_field :name %></td>
+        </tr>
+        <tr>
+          <th>商品説明</th>
+          <td><%= f.text_area :caption %></td>
+        </tr>
+        <tr>
+          <th>ジャンル</th>
+          <td><%= f.collection_select(:category_id, @categories, :id, :name, prompt: "選択してください") %></td>
+        </tr>
+        <tr>
+          <th>税抜き価格</th>
+          <td><%= f.text_field :price %>円</td>
+        </tr>
+        <tr>
+          <th>販売ステータス</th>
+          <td>
+            <%= f.radio_button :is_active, :true %>
+            <%= f.label :is_active, "販売中" %>
+            <%= f.radio_button :is_active, :false %>
+            <%= f.label :is_active, "販売停止中" %>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <%= f.submit "変更を保存", class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>

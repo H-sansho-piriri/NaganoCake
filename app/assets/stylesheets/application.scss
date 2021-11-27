@@ -1,0 +1,158 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap";
+ @import 'font-awesome-sprockets';
+ @import 'font-awesome';
+
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color:#2F4F4F;
+ }
+
+#content{
+  min-height: 100vh;
+  position:relative;
+  padding-bottom: 100px;
+  box-sizing: border-box;
+ }
+
+ header {
+  border-bottom: 1px solid #a9a9a9;
+  background-color:#CDBBEC;
+ }
+
+.navbar-link {
+ margin-left: 30px;
+}
+
+footer{
+  border-top: 1px solid #a9a9a9;
+  padding-top:15px;
+  padding-bottom:15px;
+  text-align:center;
+  background-color:#CDBBEC;
+  height:100px;
+  position:absolute;
+  width:100%;
+  bottom: 0;
+}
+
+
+main {
+ padding-top: 20px;
+ padding-bottom: 20px;
+ // background-color:#eee;
+}
+
+td {
+  border: 1px solid black !important;
+}
+
+.bg{
+  height:300px;
+  background-image:url(top.jpg);
+  background-size: cover;
+}
+
+.introduction{
+  font-size:20px;
+  padding-top:10px;
+  padding-bottom:1px;
+  background-color: rgba(255, 255, 255, 0.6);
+  width:60%;
+}
+
+h3{
+ display:inline-block;
+}
+h4 {
+  padding-top:10px;
+}
+
+h4:first-letter {
+  font-size: 150%;
+  color: #F2B900;
+  font-weight:bold;
+}
+
+.category{
+ background-color:#adadad;
+}
+
+h5{
+  font-size:20px;
+  font-weight:bold;
+  color:#f2b900;
+}
+h6{
+ text-align:center;
+ font-size:18px;
+ padding:5px;
+}
+
+.categorymenu{
+ line-height:22pt;
+}
+
+.cart_products{
+    border:1px solid #000;
+    padding-bottom:15px;
+}
+
+.cart_products th{
+    border:1px solid #000;
+    padding:10px;
+    background-color:#eee;
+}
+
+.cart_products td{
+    border:1px solid #000;
+    padding:10px;
+}
+
+.field_with_errors {
+  display: contents;
+}
+
+.categories{
+  border:1px solid #000;
+
+}
+.categories th{
+
+  padding:10px;
+  background-color:#eee;
+}
+
+.categories td{
+  padding:10px;
+}
+
+.select{
+  padding-left:20px;
+}
+
+
+.slider {
+	width:	100%;
+	height:	300px;
+}
+
+.notification {
+  width: 100%;
+}

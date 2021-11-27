@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-5">
+      <h3><span>マイページ</span></h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <h5 class="font-weight-bold my-3 d-inline-flex">登録情報</h5><span class="ml-5"><%= link_to "編集する", edit_customers_path, class: "btn btn-success btn-sm" %></span>
+      <div class="table-responsive-md">
+        <table class="table">
+          <tr>
+            <td class="bg-light" style="width:25%">氏名</td>
+            <td style="width:75%"><%= current_customer.last_name %> <%= current_customer.first_name %></td>
+          </tr>
+          <tr>
+            <td class="bg-light">カナ</td>
+            <td><%= current_customer.last_name_kana %> <%= current_customer.first_name_kana %></td>
+          </tr>
+          <tr>
+            <td class="bg-light">郵便番号</td>
+            <td><%= current_customer.postal_code %></td>
+          </tr>
+          <tr>
+            <td class="bg-light">住所</td>
+            <td><%= current_customer.address %></td>
+          </tr>
+          <tr>
+            <td class="bg-light">電話番号</td>
+            <td><%= current_customer.phone_number %></td>
+          </tr>
+          <tr>
+            <td class="bg-light">メールアドレス</td>
+            <td><%= current_customer.email %></td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3 d-flex flex-column">
+          <h5 class="font-weight-bold my-3 d-inline-flex">配送先</h5>
+          <h5 class="font-weight-bold my-3 d-inline-flex">注文履歴</h5>
+        </div>
+        <div class="col-md-3 d-flex flex-column">
+          <div class="my-3"><%= link_to "一覧を見る", customers_shippings_path, class: "btn btn-primary btn-sm" %></div>
+          <div class="my-2"><%= link_to "一覧を見る", orders_path, class: "btn btn-primary btn-sm" %></div>
+        </div>
+      </div>
+    </div>
+  </div>

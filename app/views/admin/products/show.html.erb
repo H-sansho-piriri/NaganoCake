@@ -1,0 +1,39 @@
+
+<div class="container">
+  <h3>商品詳細</h3>
+  <div class="row">
+    <div class="col-md-4">
+      <%= attachment_image_tag @product, :image, :fill, 200, 200, format: "jpeg" %>
+    </div>
+    <div class="col-md-5">
+      <table class="table cart_products">
+        <tr>
+          <th>商品</th>
+          <td><%= @product.name %></td>
+        </tr>
+        <tr>
+          <th>商品説明</th>
+          <td><%= @product.caption %></td>
+        </tr>
+        <tr>
+          <th>ジャンル</th>
+          <td><%= @product.category.name %></td>
+        </tr>
+        <tr>
+          <th>税込み価格<br>（税抜価格）</th>
+          <td><%= @product.add_tax_price.to_s(:delimited) %> (<%= @product.price.to_s(:delimited) %>)</td>
+        </tr>
+        <tr>
+          <th>販売ステータス</th>
+          <td><%= @product.is_active ? "販売中" : "販売停止中" %></td>
+        </tr>
+      </table>
+      <br>
+      <%= link_to edit_admin_product_path(@product.id) do %>
+        <button type="button" class="btn btn-success">
+          編集する
+        </button>
+      <% end %>
+    </div>
+  </div>
+</div>

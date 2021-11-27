@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <h3>商品一覧</h3>
+    </div>
+
+
+    <!--colのサイズ設定-->
+    <div class="col-md-1 offset-md-9">
+      <%= link_to new_admin_product_path do %>
+        <i class="fas fa-plus-circle fa-3x"></i>
+      <% end %>
+    </div>
+  </div>
+
+    <div class="row">
+
+      <table class="table cart_products">
+          <tr>
+            <th class="col-md-1">商品ID</th>
+            <th class="col-md-3">商品名</th>
+            <th class="col-md-2">税抜価格</th>
+            <th class="col-md-2">ジャンル</th>
+            <th class="col-md-2">ステータス</th>
+          </tr>
+
+          <% @products.each do |product| %>
+          <tr>
+            <td class="col-md-1"><%= product.id %></td>
+            <td class="col-md-3"><%= link_to product.name, admin_product_path(product.id) %></td>
+            <td class="col-md-2"><%= product.price %></td>
+            <td class="col-md-2"><%= product.category.name %></td>
+            <td class="col-md-2"><%= product.is_active ? "販売中" : "販売停止中" %></td>
+          </tr>
+          <% end %>
+      </table>
+
+
+      <!--ページング記載-->
+
+    </div>
+    </div>
+  </div>
+</div>
