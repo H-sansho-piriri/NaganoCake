@@ -39,6 +39,9 @@ Rails.application.routes.draw do
         get "complete"
       end
     end
+    
+    # 検索機能
+    get "/products_search", to: "searches#product_search"
   end
   
   # 管理者側

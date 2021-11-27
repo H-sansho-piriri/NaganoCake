@@ -15,17 +15,7 @@
     <div class="col-9 mx-5">
       <h2 class="font-weight-bold d-inline-flex">商品一覧</h2><span class="">（全<%= @products.count %>件）</span>
       <div class="d-flex flex-row mt-2">
-        <% @products.each do |product| %>
-        <div class="d-flex flex-column mr-3">
-          <div>
-            <%= link_to product_path(product.id) do %>
-              <%= attachment_image_tag product, :image, :fill, 150, 200, fallback:"no_image.jpg" %>
-            <% end %>
-          </div>
-          <div style="font-size:20px;"><%= product.name %></div>
-          <div>¥ <%= product.price.to_s(:delimited) %></div>
-        </div>
-        <% end %>
+        <%= render "public/products/index", products: @products %>
         <%= paginate @products %>
       </div>
 
