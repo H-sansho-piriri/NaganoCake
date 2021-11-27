@@ -14,7 +14,7 @@
 
       <h4>お届け先</h4>
         <div>
-          <%= f.radio_button :address_number, 1 %>
+          <%= f.radio_button :address_number, 1, {:checked => true} %>
           <%= f.label :address_number, "ご自身の住所" %>
           <div>
             〒<%= current_customer.postal_code %><%= current_customer.address %>
