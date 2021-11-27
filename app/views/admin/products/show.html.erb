@@ -1,37 +1,38 @@
 
 <div class="container">
-  <h6>商品詳細</h6>
+  <h3>商品詳細</h3>
   <div class="row">
     <div class="col-md-4">
-      <%= attachment_image_tag @product, :image, :fill, 100, 200, format: "jpeg" %>
+      <%= attachment_image_tag @product, :image, :fill, 200, 200, format: "jpeg" %>
     </div>
-    <div class="col-md-6">
-      <table>
+    <div class="col-md-5">
+      <table class="table cart_products">
         <tr>
-          <td>商品</td>
+          <th>商品</th>
           <td><%= @product.name %></td>
         </tr>
         <tr>
-          <td>商品説明</td>
+          <th>商品説明</th>
           <td><%= @product.caption %></td>
         </tr>
         <tr>
-          <td>ジャンル</td>
+          <th>ジャンル</th>
           <td><%= @product.category.name %></td>
         </tr>
         <tr>
-          <td>税込み価格<br>（税抜価格）</td>
-          <td><%= @product.add_tax_price.to_s(:delimited) %> (<%= @product.price %>)</td>
+          <th>税込み価格<br>（税抜価格）</th>
+          <td><%= @product.add_tax_price.to_s(:delimited) %> (<%= @product.price.to_s(:delimited) %>)</td>
         </tr>
         <tr>
-          <td>販売ステータス</td>
+          <th>販売ステータス</th>
           <td><%= @product.is_active ? "販売中" : "販売停止中" %></td>
         </tr>
       </table>
+      <br>
       <%= link_to edit_admin_product_path(@product.id) do %>
-        <div class="button">
+        <button type="button" class="btn btn-success">
           編集する
-        </div>
+        </button>
       <% end %>
     </div>
   </div>

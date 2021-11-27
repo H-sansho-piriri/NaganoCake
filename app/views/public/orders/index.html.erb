@@ -1,29 +1,32 @@
-<h6>注文履歴一覧</h6>
+
 <div class="container">
   <div class="row">
     <div class="col">
-      <table>
-        <thead>
+      <h3>注文履歴一覧</h3>
+      <table class="orders">
           <tr>
-            <td>注文日</td>
-            <td>配送先</td>
-            <td>注文商品</td>
-            <td>支払い金額</td>
-            <td>ステータス</td>
-            <td>注文詳細</td>
+            <th>注文日</th>
+            <th>配送先</th>
+            <th>注文商品</th>
+            <th>支払い金額</th>
+            <th>ステータス</th>
+            <th>注文詳細</th>
           </tr>
-        </thead>
-        <tbody>
           <!--データ入力-->
-          <tr>
-            <td>chu-mon</td>
-            <td>hai-so-!</td>
-            <td>sho-hin</td>
-            <td>siharai</td>
-            <td>sute-tasu</td>
-            <td>sho-sai</td>
-          </tr>
-        </tbody>
+          <% @orders.each do |order| %>
+            <tr>
+              <td><%= order.created_at.strftime("%Y/%m/%d") %></td>
+              <td><%= order.full_address %></td>
+              <td>
+                <% order.order_details.each do |order_detail| %>
+                  <%= order_detail.product.name %><br />
+                <% end %>
+              </td>
+              <td><%= (order.postage + order.total_price).to_s(:delimited) %></td>
+              <td><%= order.status_i18n %></td>
+              <td><%= link_to "表示する", order_path(order), class: "btn btn-primary" %></td>
+            </tr>
+          <% end %>
       </table>
     </div>
   </div>

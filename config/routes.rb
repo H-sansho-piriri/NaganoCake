@@ -1,16 +1,6 @@
 Rails.application.routes.draw do
 
   # 管理者側
-  devise_for :admin, skip: [:registrations, :passwords], controllers: {
-    sessions: "admin/sessions"
-  }
-  # 顧客側
-  devise_for :customers, skip: [:passwords,], controllers: {
-    registrations: "public/registrations",
-    sessions: "public/sessions"
-  }
-
-  # 管理者側
   namespace :admin do
     resources :products, except: [:destroy]
     resources :categories, except: [:show, :destroy, :new]
@@ -29,7 +19,7 @@ Rails.application.routes.draw do
 
     resource :customers, only: [:show, :edit, :update] do
       collection do
-        get 'unsubscribe'
+        get "unsubscribe"
         patch "withdraw"
       end
 
@@ -49,5 +39,19 @@ Rails.application.routes.draw do
         get "complete"
       end
     end
+    
+    # 検索機能
+    get "/products_search", to: "searches#product_search"
   end
+  
+  # 管理者側
+  devise_for :admin, skip: [:registrations, :passwords], controllers: {
+    sessions: "admin/sessions"
+  }
+  # 顧客側
+  devise_for :customers, skip: [:passwords,], controllers: {
+    registrations: "public/registrations",
+    sessions: "public/sessions"
+  }
+  
 end

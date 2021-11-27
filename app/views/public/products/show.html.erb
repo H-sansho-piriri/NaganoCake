@@ -1,13 +1,13 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-2 ml-3">
-      <div class="border border-dark p-1">
-        <h6 class="text-center">ジャンル検索</h6>
+      <div class="border border-light p-1 category">
+        <h6><i class="fas fa-birthday-cake"></i> ジャンル検索</h6>
       </div>
-      <div class="border border-dark p-3">
+      <div class="border border-light p-3", style="background-color:#e6e6fa;">
         <ul class="list-unstyled">
           <% @categories.each do |category| %>
-          <li><%= category.name %></li>
+          <li class="categorymenu"><i class="fas fa-cookie"></i> <%= category.name %></li>
           <% end %>
         </ul>
       </div>
@@ -15,18 +15,21 @@
 
     <div class="col-3 mx-5">
       <div>
-        <%= attachment_image_tag @product, :image, :fill, 200, 250, fallback: "no_image.jpg" %>
+        <%= attachment_image_tag @product, :image, :fill, 250, 250, fallback: "no_image.jpg" %>
       </div>
     </div>
 
     <div class="col-5 mx-5">
       <h3 class="mb-3"><%= @product.name %></h3>
       <p><%= @product.caption %></p>
-      <p><%= @product.price %></p>
-      <%= form_with model: @cart_product, url: customers_cart_products_path, local:true do |f| %>
+      <p>
+        <span style="font-size:20px;">¥ <%= @product.add_tax_price.to_s(:delimited) %></span>
+        <span style="font-size:12px;">（税込）</span></p>
+      <%= form_with model: @cart_product, url: customers_cart_products_path(current_customer), local:true do |f| %>
+        <%= f.hidden_field :customer_id, value: current_customer.id %>
         <%= f.hidden_field :product_id, value: @product.id %>
       <div>
-        <%= f.number_field :quantity, placeholder: "個数選択", min: 1, max: 30 %>
+        <%= f.select :quantity, *[1..30] %>
         <%= f.submit "カートに入れる", class: "btn btn-success" %>
       </div>
       <% end %>

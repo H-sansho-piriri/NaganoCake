@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+      <h3>
+        "<%= @keyword %>"の検索結果
+        <span>（全<%= @products.total_count %>件）</span>
+      </h3>
+
+      <div class="d-flex flex-row mt-2">
+      <%= render "public/products/index", products: @products %>
+      </div>
+
+    </div>
+  </div>
+</div>
