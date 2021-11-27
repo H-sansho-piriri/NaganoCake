@@ -1,0 +1,10 @@
+<!--<input type="text" class="form-control col-5" placeholder="Search" aria-describedby="inputGroupPrepend2" required>-->
+<!--<span class="input-group-prepend" id="inputGroupPrepend2">-->
+<!--<button class="input-group-text" id="inputGroupPrepend2"><i class="fas fa-search"></i></button>-->
+<!--</span>-->
+<%= form_with url: products_search_path, method: :get, local: true do |f| %>
+  <div>
+    <%= f.text_field :keyword, placeholder: "キーワード", class: "" %>
+    <%= f.submit "Search", class: "" %>
+  </div>
+<% end %>
