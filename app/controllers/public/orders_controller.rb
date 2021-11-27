@@ -1,7 +1,9 @@
 class Public::OrdersController < ApplicationController
-  
+
   before_action :authenticate_customer!
-  
+  before_action :products_exists?, only: [:new]
+  # before_action :address_exists?, only: [:confirm]
+
   def new
     @order = Order.new
   end
@@ -52,19 +54,22 @@ class Public::OrdersController < ApplicationController
     @order.postage = @shipping_fee
     @order.total_price = @total
 
-    @order.save
-    cart_products.each do |cart|
-      order_detail = OrderDetail.new
-      order_detail.product_id = cart.product_id
-      order_detail.order_id = @order.id
-      order_detail.quantity = cart.quantity
-      order_detail.price = cart.product.add_tax_price
-      order_detail.save
+    if @order.save
+      cart_products.each do |cart|
+        order_detail = OrderDetail.new
+        order_detail.product_id = cart.product_id
+        order_detail.order_id = @order.id
+        order_detail.quantity = cart.quantity
+        order_detail.price = cart.product.add_tax_price
+        order_detail.save
+      end
+       redirect_to complete_orders_path
+       cart_products.destroy_all
+    else
+      flash[:alert] = "住所を記載してね。"
+      render :new
+
     end
-
-    redirect_to complete_orders_path
-    cart_products.destroy_all
-
   end
 
 
@@ -84,5 +89,13 @@ class Public::OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:payment_method, :postal_code, :address, :name)
   end
+
+  def products_exists?
+    if current_customer.cart_products.blank?
+      redirect_to products_path
+      flash[:alert] = "カートに商品を入れてね"
+    end
+  end
+
 
 end

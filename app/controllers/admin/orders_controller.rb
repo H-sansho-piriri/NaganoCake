@@ -20,7 +20,12 @@ class Admin::OrdersController < ApplicationController
     @order.update(order_params)
 
     if @order.status == "payment_cofirm"
+      flash[:notice] = "作り始めよう！"
       @order.order_details.update(making_status: "waiting")
+    end
+
+    if @order.status == "shipped"
+      flash[:notice] = "頑張ったね！"
     end
 
     redirect_to request.referer

@@ -45,7 +45,7 @@
           <td>
             <%= link_to "削除する", customers_cart_product_path(cart_product.id), method: :delete,class: "btn btn-danger" %>
           </td>
-          <% @total +=  cart_product.subtotal %>
+          <% @total += cart_product.subtotal %>
         </tr>
         <% end %>
       </table>

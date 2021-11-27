@@ -5,4 +5,10 @@ class Product < ApplicationRecord
   end
   belongs_to :category
   has_many :cart_products, dependent: :destroy
+
+  validates :name, presence: true
+  validates :caption, presence: true
+  validates :price, presence: true
+  validates :category_id, presence: true
+
 end

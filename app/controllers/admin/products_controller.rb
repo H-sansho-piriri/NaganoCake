@@ -10,9 +10,14 @@ class Admin::ProductsController < ApplicationController
   end
 
   def create
-    product = Product.new(product_params)
-    product.save
-    redirect_to admin_product_path(product.id)
+    @product = Product.new(product_params)
+    if @product.save
+      flash[:notice] = "おいしそうだね。"
+      redirect_to admin_product_path(@product.id)
+    else
+      flash[:alert] = "もう一度入力してね。"
+      render :new
+    end
 
   end
 
@@ -29,6 +34,7 @@ class Admin::ProductsController < ApplicationController
   def update
     product = Product.find(params[:id])
     product.update(product_params)
+    flash[:notice] = "商品情報を編集したよ。"
     redirect_to admin_product_path(product.id)
   end
 

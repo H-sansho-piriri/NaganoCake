@@ -1,7 +1,7 @@
 class Public::CartProductsController < ApplicationController
-  
+
   before_action :authenticate_customer!
-  
+
   def index
     @cart_products = CartProduct.all
     @total = 0
@@ -25,6 +25,7 @@ class Public::CartProductsController < ApplicationController
     # なかったら
     else
       @cart_product.save
+      flash[:notice] = "買ってくれるかな？"
       redirect_to customers_cart_products_path
     end
 
@@ -33,8 +34,14 @@ class Public::CartProductsController < ApplicationController
   # カート内の個数を変更
   def update
     @cart_product = CartProduct.find(params[:id])
-    @cart_product.update(cart_product_params)
-    redirect_to customers_cart_products_path
+    if @cart_product.update(cart_product_params)
+      flash[:notice] = "変更できたよ。"
+      redirect_to customers_cart_products_path
+    else
+      @cart_products = CartProduct.all
+      flash[:alert] = "申し訳ございません。キャパオーバーです。"
+      render :index
+    end
   end
 
 
@@ -42,12 +49,14 @@ class Public::CartProductsController < ApplicationController
   def destroy
     @cart_product = CartProduct.find(params[:id])
     @cart_product.destroy
+    flash[:alert] = "買わないんですか、、？"
     redirect_to customers_cart_products_path
   end
 
   def destroy_all
     @cart_products = CartProduct.all
     @cart_products.destroy_all
+    flash[:alert] = "ぴえん"
     redirect_to customers_cart_products_path
   end
 
