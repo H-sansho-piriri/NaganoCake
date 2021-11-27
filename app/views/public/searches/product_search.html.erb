@@ -1,0 +1,19 @@
+<h3>
+  "<%= @keyword %>"の検索結果
+  <span>（全<%= @products.total_count %>件）</span>
+</h3>
+
+<div class="col-2 ml-3">
+  <div class="border border-light p-1 category">
+    <h6><i class="fas fa-birthday-cake"></i> ジャンル検索</h6>
+  </div>
+  <div class="border border-light p-3", style="background-color:#e6e6fa;">
+    <ul class="list-unstyled">
+      <% @categories.each do |category| %>
+      <li class="categorymenu"><i class="fas fa-cookie"></i> <%= category.name %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<%= render "public/products/index", products: @products %>

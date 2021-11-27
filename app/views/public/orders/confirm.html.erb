@@ -15,9 +15,9 @@
         <% @cart_products.each do |cart_product| %>
         <tr>
           <td><%= cart_product.product.name %></td>
-          <td><%= cart_product.product.add_tax_price.to_s(:delimited) %></td>
+          <td><%= cart_product.product.add_tax_price.to_s(:delimited) %>円</td>
           <td><%= cart_product.quantity %></td>
-          <td><%= cart_product.subtotal.to_s(:delimited) %></td>
+          <td><%= cart_product.subtotal.to_s(:delimited) %>円</td>
         </tr>
         <% end %>
       </table>
@@ -29,15 +29,15 @@
       <table class="orders">
         <tr>
           <th>送料</th>
-          <td><%= @shipping_fee %></td>
+          <td><%= @shipping_fee %>円</td>
         </tr>
         <tr>
           <th>商品合計</th>
-          <td><%= @total.to_s(:delimited) %></td>
+          <td><%= @total.to_s(:delimited) %>円</td>
         </tr>
         <tr>
           <th>請求金額</td>
-          <td><%= (@shipping_fee + @total).to_s(:delimited) %></td>
+          <td><%= (@shipping_fee + @total).to_s(:delimited) %>円</td>
         </tr>
 
       </table>
